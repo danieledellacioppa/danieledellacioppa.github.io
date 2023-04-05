@@ -13,9 +13,10 @@ body {
 
 h1 {
     font-family: 'Monofett', cursive;
+    font-weight: 500;
+    color: floralwhite;
     text-align: center;
     font-size: 70px;
-    color: floralwhite;
 }
 
 h2 {
@@ -26,10 +27,10 @@ h2 {
 
 h3 {
     font-family: 'Sansita One', cursive;
+    font-weight: 500;
+    color: floralwhite;
     text-align: center;
     font-size: 36px;
-    color: floralwhite;
-
 }
 
 h4 {
