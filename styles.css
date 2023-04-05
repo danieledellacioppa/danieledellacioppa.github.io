@@ -74,7 +74,7 @@ a:hover, a:active {
 }
 
 .home {
-    background-image: url(https://res.cloudinary.com/dwta0ryvf/image/upload/v1468603978/lugoz_1000_1000_p2vh0a.jpg);
+    background-image: url("./images/bg.jpg");
     padding-top: 50px;
     padding-right: 0px;
     padding-bottom: 50px;
