@@ -84,33 +84,33 @@ a:hover, a:active {
     padding-right: 0px;
     padding-bottom: 50px;
     border-bottom-width: 5px;
-    border-color: #f1844d;
+    border-color: #2F9A82;
     border-bottom-style: dashed;
 }
 
 .about {
-    background-color: #f1844d;
+    background-color: #2F9A82;
     padding-top: 0px;
     padding-bottom: 30px;
     border-bottom-width: 5px;
-    border-color: #1c94c3;
+    border-color: #2B414E;
     border-bottom-style: dashed;
 
 
 }
 
 .portfolio {
-    background-color:#1c94c3;
+    background-color:#2B414E;
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom-width: 5px;
-    border-color: #0eae6c;
+    border-color: #F44336;
     border-bottom-style: dashed;
 
 }
 
 .contacts {
-    background-color: #0eae6c;
+    background-color: #F44336;
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom-style: dashed;
