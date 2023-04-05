@@ -78,6 +78,8 @@ a:hover, a:active {
 
 .home {
     background-image: url(https://cdn.discordapp.com/attachments/1017188753065918524/1093284686844919868/devendetes_Japanese_students_walking_next_London_skyscraper_wit_503a37d2-2daf-4b02-8adf-22279742153c.png);
+    background-size: cover;
+    background-position: center;
     padding-top: 50px;
     padding-right: 0px;
     padding-bottom: 50px;
