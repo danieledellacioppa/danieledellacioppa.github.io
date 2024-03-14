@@ -1,67 +1,22 @@
-name: 'Upload GitHub Pages Artifact'
-description: 'Prepares and uploads your static assets to be deployed to GitHub Pages'
-author: 'Your Name'
-
-inputs:
-  name:
-    description: 'Artifact name'
-    required: false
-    default: 'github-pages'
-  path:
-    description: "Path of the directory containing the static assets."
-    required: true
-    default: "_site/"
-  retention-days:
-    description: "Duration after which artifact will expire in days."
-    required: false
-    default: "1"
-
-outputs:
-  artifact_id:
-    description: "The ID of the artifact that was uploaded."
-    value: ${{ steps.upload-artifact.outputs.artifact-id }}
-
-runs:
-  using: "composite"
-  steps:
-    - name: Archive artifact (Linux & macOS)
-      shell: bash
-      run: |
-        echo ::group::Archive artifact
-        tar \
-          --dereference --hard-dereference \
-          --directory "${{ inputs.path }}" \
-          -cvf "$RUNNER_TEMP/artifact.tar" \
-          --exclude=.git \
-          --exclude=.github \
-          .
-        echo ::endgroup::
-      env:
-        INPUT_PATH: ${{ inputs.path }}
-
-    - name: Archive artifact (Windows)
-      shell: pwsh
-      if: runner.os == 'Windows'
-      run: |
-        echo ::group::Archive artifact
-        tar.exe \
-          --dereference --hard-dereference \
-          --directory "${{ inputs.path }}" \
-          -cvf "$RUNNER_TEMP\artifact.tar" \
-          --exclude=.git \
-          --exclude=.github \
-          --force-local \
-          "."
-        echo ::endgroup::
-      env:
-        INPUT_PATH: ${{ inputs.path }}
-
-    - name: Upload artifact
-      id: upload-artifact
-      uses: actions/upload-artifact@v4
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: echo Dummy build step > dist/index.html # Sostituire con il vero comando di build
+    - uses: actions/upload-artifact@v4
       with:
-        name: ${{ inputs.name }}
-        path: ${{ runner.temp }}/artifact.tar
-        retention-days: ${{ inputs.retention-days }}
-        if-no-files-found: error
+        name: github-pages
+        path: dist/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
+      with:
+        artifact_name: github-pages
+        token: ${{ secrets.GITHUB_TOKEN }}
+
 
