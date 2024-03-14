@@ -42,7 +42,7 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2 # Aggiornato per usare la versione più recente
+        uses: actions/upload-artifact@v4
         with:
           path: './dist' # Assicurati che questo sia il percorso corretto dove Vite genera il build
 
