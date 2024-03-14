@@ -14,7 +14,10 @@ jobs:
     
     - name: Install Dependencies
       run: npm install
-    
+
+    - name: Install Vue
+      run: npm install vue
+
     - name: Build
       run: npm run build
     
