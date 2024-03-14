@@ -1,22 +1,42 @@
+name: Build, Upload Artifact, and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  build:
+  build-and-upload:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
-    - run: echo Dummy build step > dist/index.html # Sostituire con il vero comando di build
-    - uses: actions/upload-artifact@v4
+    
+    - name: Install Dependencies
+      run: npm install
+    
+    - name: Build
+      run: npm run build
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
       with:
         name: github-pages
         path: dist/
-
+  
   deploy:
-    needs: build
+    needs: build-and-upload
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
     steps:
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
       with:
-        artifact_name: github-pages
         token: ${{ secrets.GITHUB_TOKEN }}
+
 
 
