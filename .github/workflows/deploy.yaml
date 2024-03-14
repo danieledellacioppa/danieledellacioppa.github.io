@@ -5,32 +5,29 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}      
+
     steps:
     - uses: actions/checkout@v2
     - name: Install Dependencies
       run: npm install
     - name: Build
       run: npm run build
-    - name: Upload Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: github-pages  # Nome dell'artifact
-        path: dist/**/*  # Percorso della cartella con i file da caricare
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    steps:
     - name: Deploy
       uses: actions/deploy-pages@v4
+      with:
+        branch: gh-pages
+        folder: dist
 
 
 
