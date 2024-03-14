@@ -7,9 +7,4 @@ const base = '/';
 export default defineConfig({
   plugins: [vue()],
   base, // Uso la variabile 'base' qui, ma potresti anche semplicemente scrivere 'base: "/"'
-  // rollupOptions: {
-  //   output: {
-  //     external: ['vue'], // Indica a Rollup di non includere Vue nel bundle
-  //   }
-  // }
 });
