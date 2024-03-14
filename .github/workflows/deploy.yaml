@@ -1,0 +1,21 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main  # O il nome del tuo branch principale
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: npm install
+    - name: Build
+      run: npm run build
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4.1.4
+      with:
+        branch: gh-pages  # Il branch su cui deployare (GitHub Pages usa `gh-pages` per default)
+        folder: dist  # La cartella da deployare
+
