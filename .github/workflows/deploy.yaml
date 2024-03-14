@@ -2,27 +2,35 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main  # O il nome del tuo branch principale
+      - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    
     steps:
     - uses: actions/checkout@v2
     - name: Install Dependencies
       run: npm install
     - name: Build
       run: npm run build
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: github-pages  # Nome dell'artifact
+        path: dist/**/*  # Percorso della cartella con i file da caricare
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
     - name: Deploy
       uses: actions/deploy-pages@v4
-      with:
-        branch: gh-pages  # Il branch su cui deployare (GitHub Pages usa `gh-pages` per default)
-        folder: dist  # La cartella da deployare
+
 
 
