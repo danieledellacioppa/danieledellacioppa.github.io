@@ -1,13 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Vue</title>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue App</title>
+</head>
+<body>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+    <!-- Importa Vue da CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <!-- Il tuo script dell'applicazione -->
+    <script>
+      const { createApp } = Vue;
+
+      // Definisci il tuo componente principale o usa App.vue (vedi nota sotto)
+      const App = {
+        // Opzioni del componente...
+        template: `<div>Hello, Vue 3!</div>`
+      };
+
+      // Crea e monta l'app Vue
+      createApp(App).mount('#app');
+    </script>
+</body>
 </html>
