@@ -10,43 +10,31 @@ scene.add(light);
 
 camera.position.z = 5;
 
+// Primo cubo (già esistente nel tuo codice)
 let geometry = new THREE.BoxGeometry();
 let material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-let cube = new THREE.Mesh(geometry, material);
-cube.userData = { URL: "https://github.com/danieledellacioppa/Zip-JSON-Editor" }; // URL del progetto
-scene.add(cube);
+let cube1 = new THREE.Mesh(geometry, material);
+cube1.position.x = -1.5; // Sposta leggermente a sinistra
+cube1.userData = { URL: "https://github.com/danieledellacioppa/Zip-JSON-Editor" }; // URL del progetto
+scene.add(cube1);
 
-let raycaster = new THREE.Raycaster();
-let mouse = new THREE.Vector2();
+// Secondo cubo
+let cube2 = new THREE.Mesh(geometry, material.clone()); // Clona il materiale se vuoi lo stesso colore, altrimenti crea un nuovo material con color diverso
+cube2.position.x = 1.5; // Sposta leggermente a destra
+cube2.userData = { URL: "https://github.com/danieledellacioppa/Jetpack-Dagger-Minimalistic-Launcher-for-Android-10" }; // Puoi cambiare l'URL per il secondo cubo
+scene.add(cube2);
 
-function onMouseClick(event) {
-    // Calcola la posizione del mouse nella scena
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-    // Aggiorna il raycaster con la posizione del mouse
-    raycaster.setFromCamera(mouse, camera);
-
-    // Calcola gli oggetti che intersecano il raggio
-    let intersects = raycaster.intersectObjects(scene.children);
-
-    for (let i = 0; i < intersects.length; i++) {
-        if (intersects[i].object.userData.URL) {
-            window.open(intersects[i].object.userData.URL);
-            break;
-        }
-    }
-}
-
-window.addEventListener('click', onMouseClick);
-
+// Funzione animate aggiornata per animare entrambi i cubi
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
 
-    // Qui puoi aggiungere animazioni agli oggetti, es. far ruotare il cubo
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
+    // Anima entrambi i cubi
+    cube1.rotation.x += 0.01;
+    cube1.rotation.y += 0.01;
+
+    cube2.rotation.x += 0.01;
+    cube2.rotation.y += 0.01;
 }
 
 animate();
