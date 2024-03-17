@@ -20,5 +20,28 @@
 
 #progress-bars3-2.progress-bars3.cid-quiZUT2MPU {
     background-color: #0b1c71; /* o qualsiasi colore blu tu desideri */
+}
+
+
+#header11-3 {
+    position: relative; /* Necessario per posizionare correttamente l'elemento pseudo */
+    background-image: url('/home/daniele/repo/danieledellacioppa.github.io/assets/images/wallpaper.png');
+    background-size: cover;
+    background-position: center;
   }
   
+  #header11-3::before {
+    content: ''; /* Necessario per creare l'elemento pseudo */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Sovrappone uno sfondo nero con opacità al 50% */
+    z-index: 1; /* Assicura che l'overlay sia sopra l'immagine di sfondo ma sotto il contenuto */
+  }
+  
+  #header11-3 * {
+    position: relative; /* Rende il contenuto della sezione sopra l'overlay */
+    z-index: 2;
+  }
