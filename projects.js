@@ -16,24 +16,29 @@ const projects = [
   ];
   
   function displayProjects() {
-      const projectsGrid = document.querySelector('#projects-grid');
-  
-      projects.forEach((project) => {
-          const projectCard = document.createElement('div');
-          projectCard.className = 'col-lg-4 col-md-6 project-card';
-          projectCard.innerHTML = `
-              <div class="card">
-                  <img src="${project.imageUrl}" alt="${project.nome}" class="card-img-top project-image">
-                  <div class="card-body">
-                      <h5 class="project-title">${project.nome}</h5>
-                      <p class="project-description">${project.descrizione}</p>
-                      <a href="${project.url}" class="btn btn-primary">Vedi Progetto</a>
-                  </div>
-              </div>
-          `;
-          projectsGrid.appendChild(projectCard);
-      });
-  }
+    const projectsGrid = document.querySelector('#projects-grid');
+
+    projects.forEach((project) => {
+        const projectCard = document.createElement('div');
+        projectCard.className = 'col-lg-4 col-md-6 project-card';
+
+        projectCard.innerHTML = `
+            <div class="card">
+                <div class="image-frame">
+                    <img src="${project.imageUrl}" alt="${project.nome}" class="card-img-top project-image">
+                </div>
+                <div class="card-body">
+                    <h5 class="project-title">${project.nome}</h5>
+                    <p class="project-description">${project.descrizione}</p>
+                    <a href="${project.url}" class="btn btn-primary">Vedi Progetto</a>
+                </div>
+            </div>
+        `;
+
+        projectsGrid.appendChild(projectCard);
+    });
+}
+
   
   window.addEventListener('load', displayProjects);
   

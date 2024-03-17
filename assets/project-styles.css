@@ -30,10 +30,21 @@
     color: rgb(155, 204, 0);
 }
 
+
 .card, .card-body {
     border-radius: 15px; /* Applica un bordo arrotondato a tutti e quattro gli angoli della card e del suo contenuto */
     text-align: center; /* Centra il testo all'interno del corpo della card */
 }
+
+/* Stile per l'immagine con cornice */
+.image-frame {
+    display: inline-block; /* Rende l'elemento adattabile per padding e margin */
+    padding: 10px; /* Spazio tra l'immagine e il suo bordo, funge da "cornice" */
+    background-color: white; /* Colore di sfondo della cornice, in questo caso bianco */
+    border-radius: 18px; /* Raggio di curvatura per arrotondare gli angoli della cornice */
+    margin: -10px 0; /* Ajuste per posizionare correttamente la cornice intorno all'immagine */
+}
+
 
 .card img.card-img-top {
     border-top-left-radius: 15px; /* Mantiene l'angolo in alto a sinistra dell'immagine arrotondato */
