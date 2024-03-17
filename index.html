@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="assets/animatecss/animate.min.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/project-styles.css">
 </head>
 
 <body>
@@ -122,187 +124,65 @@
     </div>
 </section>
 
-
 <section class="progress-bars3 cid-quiZUT2MPU" id="progress-bars3-2">
-
     <div class="container">
         <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">
-            Profile<br></h2>
-        <h3 class="mbr-section-subtitle mbr-fonts-style display-5"></h3>
-        <div class="media-container-row pt-5 mt-2">
-            <div class="card p-3 align-center">
-                <div class="wrap">
-                    <div class="pie_progress progress1" role="progressbar" data-goal="95">
-                        <p class="pie_progress__number mbr-fonts-style display-5">65%</p>
-                    </div>
-                </div> 
-                <div class="mbr-crt-title pt-3">
-                    <h4 class="card-title py-2 mbr-fonts-style display-7">
-                       Front-End Development</h4>
-                </div>                 
-            </div>
-
-            <div class="card p-3 align-center">
-                <div class="wrap">
-                    <div class="pie_progress progress2" role="progressbar" data-goal="80">
-                        <p class="pie_progress__number mbr-fonts-style display-5">40%</p>
-                    </div>
-                </div> 
-                <div class="mbr-crt-title pt-3">
-                    <h4 class="card-title py-2 mbr-fonts-style display-7">
-                        Back-End Development</h4>
-                </div>                 
-            </div>
-
-            <div class="card p-3 align-center">
-                <div class="wrap">
-
-                    <div class="pie_progress progress3" role="progressbar" data-goal="60">
-                        <p class="pie_progress__number mbr-fonts-style display-5">20%</p>
-                    </div>
-                </div> 
-                <div class="mbr-crt-title pt-3">
-                    <h4 class="card-title py-2 mbr-fonts-style display-7">Machine Learning</h4>
-                </div>                 
-            </div>
-
+            Projects<br></h2>
         </div>
-</div>
+    </div>
+    <div class="container">
+        <div class="row" id="projects-grid">
+            <!-- Le cards dei progetti saranno inserite qui dinamicamente -->
+        </div>
+    </div>
 </section>
 
 
-<!-- <section class="timeline1 cid-quiXgOd8kn" id="timeline1-0">
+    <!-- Link JS per Swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <div class="container align-center">
-        <h2 class="mbr-section-title pb-3 mbr-fonts-style display-2">
-            Timeline
-        </h2>
-        <h3 class="mbr-section-subtitle pb-5 mbr-fonts-style display-5">
-            My Professional Journey till date.</h3>
+    <script>
+        // Array dei progetti
+        const projects = [
+          {
+            nome: "Progetto 1",
+            descrizione: "Descrizione del Progetto 1.",
+            imageUrl: "https://danieledellacioppa.github.io/assets/images/esempio1.png",
+            url: "http://linkalprogetto1.com"
+          },
+          {
+            nome: "Progetto 2",
+            descrizione: "Descrizione del Progetto 2.",
+            imageUrl: "https://danieledellacioppa.github.io/assets/images/esempio2.png",
+            url: "http://linkalprogetto2.com"
+          },
+          // Altri progetti...
+        ];
+  
+        function displayProjects() {
+    const projectsGrid = document.querySelector('#projects-grid');
 
-        <div class="container timelines-container" mbri-timelines="">
-            <div class="row timeline-element reverse separline">      
-                 <div class="timeline-date-panel col-xs-12 col-md-6  align-left">         
-                    <div class="time-line-date-content">
-                        <p class="mbr-timeline-date mbr-fonts-style display-5">
-                            June 2013 &nbsp;</p>
-                    </div>
-                </div>
-           <span class="iconBackground"></span>
-            <div class="col-xs-12 col-md-6 align-right">
-                <div class="timeline-text-content">
-                    <h4 class="mbr-timeline-title pb-3 mbr-fonts-style display-5">
-                        Passed Matriculation</h4>
-                    <p class="mbr-timeline-text mbr-fonts-style display-7"></p>
-                 </div>
-            </div>
-            </div>
-
-            <div class="row timeline-element  separline">
-                <div class="timeline-date-panel col-xs-12 col-md-6 align-right">
-                    <div class="time-line-date-content">
-                        <p class="mbr-timeline-date mbr-fonts-style display-5">June 2015 &nbsp;</p>
-                    </div>
-                </div>
-                <span class="iconBackground"></span>
-                <div class="col-xs-12 col-md-6 align-left ">
-                    <div class="timeline-text-content">
-                        <h4 class="mbr-timeline-title pb-3 mbr-fonts-style display-5">Passed Intermediate</h4>
-                        <p class="mbr-timeline-text mbr-fonts-style display-7"></p>
-                    </div>
-                </div>
-            </div> 
-
-
-            <div class="row timeline-element reverse separline">
-                <div class="timeline-date-panel col-xs-12 col-md-6  align-left">
-                    <div class="time-line-date-content">
-                        <p class="mbr-timeline-date mbr-fonts-style display-5">
-                            August 2016-20</p>
-                    </div>
-                </div>
-                <span class="iconBackground"></span>
-                <div class="col-xs-12 col-md-6 align-right">
-                    <div class="timeline-text-content">
-                        <h4 class="mbr-timeline-title pb-3 mbr-fonts-style display-5">BACHELOR OF TECHNOLOGY (B.TECH), COMPUTER
-                    <div>SCIENCE &amp; ENGINEERING</div></h4>   
-                        <p class="mbr-timeline-text mbr-fonts-style display-7"></p>
-                    </div>
+    projects.forEach((project) => {
+        const projectCard = document.createElement('div');
+        projectCard.className = 'col-lg-4 col-md-6 project-card';
+        projectCard.innerHTML = `
+            <div class="card">
+                <img src="${project.imageUrl}" alt="${project.nome}" class="card-img-top project-image">
+                <div class="card-body">
+                    <h5 class="project-title">${project.nome}</h5>
+                    <p class="project-description">${project.descrizione}</p>
+                    <a href="${project.url}" class="btn btn-primary">Vedi Progetto</a>
                 </div>
             </div>
+        `;
+        projectsGrid.appendChild(projectCard);
+    });
+}
 
-            <div class="row timeline-element  separline">
-                <div class="timeline-date-panel col-xs-12 col-md-6 align-right">
-                    <div class="time-line-date-content">
-                        <p class="mbr-timeline-date mbr-fonts-style display-5">
-                            May - July 2018</p>
-                    </div>
-                </div>
-                <span class="iconBackground"></span>
-                <div class="col-xs-12 col-md-6 align-left ">
-                    <div class="timeline-text-content">
-                        <h4 class="mbr-timeline-title pb-3 mbr-fonts-style display-5">SOFTWARE DEVELOPMENT,<br> summer internship at <br>MindStick Software PVT.LTD</h4>
-                        <p class="mbr-timeline-text mbr-fonts-style display-7"></p>
-                    </div>
-                </div>
-            </div>
+window.addEventListener('load', displayProjects);
 
-
-            <div class="row timeline-element reverse separline">
-                <div class="timeline-date-panel col-xs-12 col-md-6  align-left">
-                    <div class="time-line-date-content">
-                        <p class="mbr-timeline-date mbr-fonts-style display-5">
-                            May - Nov 2019</p>
-                    </div>
-                </div>
-                <span class="iconBackground"></span>
-                <div class="col-xs-12 col-md-6 align-right">
-                    <div class="timeline-text-content">
-                        <h4 class="mbr-timeline-title pb-3 mbr-fonts-style display-5">Data Scientist,<br> Internship at FinMomenta (FinTech Startup)</h4>
-                        <p class="mbr-timeline-text mbr-fonts-style display-7"></p>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="row timeline-element  separline">
-                <div class="timeline-date-panel col-xs-12 col-md-6 align-right">
-                    <div class="time-line-date-content">
-                        <p class="mbr-timeline-date mbr-fonts-style display-5">
-                            Nov 2020 - March 2022</p>
-                    </div>
-                </div>
-                <span class="iconBackground"></span>
-                <div class="col-xs-12 col-md-6 align-left ">
-                    <div class="timeline-text-content">
-                        <h4 class="mbr-timeline-title pb-3 mbr-fonts-style display-5">Associate Software Engineer,<br>at Harappa Learning (UpGrad) </h4>
-                        <p class="mbr-timeline-text mbr-fonts-style display-7"></p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row timeline-element reverse separline">
-                <div class="timeline-date-panel col-xs-12 col-md-6  align-left">
-                    <div class="time-line-date-content">
-                        <p class="mbr-timeline-date mbr-fonts-style display-5">
-                            March 2022 - Present</p>
-                    </div>
-                </div>
-                <span class="iconBackground"></span>
-                <div class="col-xs-12 col-md-6 align-right">
-                    <div class="timeline-text-content">
-                        <h4 class="mbr-timeline-title pb-3 mbr-fonts-style display-5">Sr. Software Engineer,<br> at Replicon </h4>
-                        <p class="mbr-timeline-text mbr-fonts-style display-7"></p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section> -->
-
+      </script>
+  
 
 
 <section class="mbr-section article content9 cid-quj5FSqkU9" id="content9-5">
