@@ -1,5 +1,5 @@
 #projects-section {
-    background-color: #f8f9fa;
+    background-color: #002e5b;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -17,3 +17,8 @@
 .project-title, .project-description {
     padding: 10px;
 }
+
+#progress-bars3-2.progress-bars3.cid-quiZUT2MPU {
+    background-color: #0b1c71; /* o qualsiasi colore blu tu desideri */
+  }
+  

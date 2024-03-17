@@ -13,7 +13,7 @@ camera.position.z = 5;
 let geometry = new THREE.BoxGeometry();
 let material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
 let cube = new THREE.Mesh(geometry, material);
-cube.userData = { URL: "http://linkalprogetto1.com" }; // URL del progetto
+cube.userData = { URL: "https://github.com/danieledellacioppa/Zip-JSON-Editor" }; // URL del progetto
 scene.add(cube);
 
 let raycaster = new THREE.Raycaster();
