@@ -12,7 +12,8 @@ camera.position.z = 5;
 
 // Primo cubo (già esistente nel tuo codice)
 let geometry = new THREE.BoxGeometry();
-let material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+// colore che voglio è 155, 204, 0
+let material = new THREE.MeshStandardMaterial({ color: 0x9bcc00 });
 let cube1 = new THREE.Mesh(geometry, material);
 cube1.position.x = -1.5; // Sposta leggermente a sinistra
 cube1.userData = { URL: "https://github.com/danieledellacioppa/Zip-JSON-Editor" }; // URL del progetto
