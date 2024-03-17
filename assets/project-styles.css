@@ -26,6 +26,11 @@
     height: 300px; /* Imposta l'altezza uguale alla larghezza per mantenere la forma circolare */
 }
 
+.highlighted-name {
+    color: rgb(155, 204, 0);
+}
+
+
 
 #progress-bars3-2.progress-bars3.cid-quiZUT2MPU {
     background-color: #0b1c71; /* o qualsiasi colore blu tu desideri */
