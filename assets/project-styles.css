@@ -18,30 +18,29 @@
     padding: 10px;
 }
 
+.mbr-figure img {
+    border-radius: 50%; /* Rende l'immagine circolare */
+    border: 24px solid rgb(155, 204, 0); 
+    object-fit: cover; /* Assicura che l'immagine copra completamente la forma senza essere distorta */
+    width: 500px; /* Imposta la larghezza desiderata */
+    height: 500px; /* Imposta l'altezza uguale alla larghezza per mantenere la forma circolare */
+}
+
+
 #progress-bars3-2.progress-bars3.cid-quiZUT2MPU {
     background-color: #0b1c71; /* o qualsiasi colore blu tu desideri */
 }
 
 
 #header11-3 {
-    position: relative; /* Necessario per posizionare correttamente l'elemento pseudo */
-    background-image: url('/home/daniele/repo/danieledellacioppa.github.io/assets/images/wallpaper.png');
-    background-size: cover;
-    background-position: center;
+    position: relative;
+    overflow: hidden; /* Assicurati che il canvas non fuoriesca dal div */
   }
   
-  #header11-3::before {
-    content: ''; /* Necessario per creare l'elemento pseudo */
+  .canvas-background {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Sovrappone uno sfondo nero con opacità al 50% */
-    z-index: 1; /* Assicura che l'overlay sia sopra l'immagine di sfondo ma sotto il contenuto */
+    z-index: -1; /* Mette il canvas dietro al contenuto del div */
   }
   
-  #header11-3 * {
-    position: relative; /* Rende il contenuto della sezione sopra l'overlay */
-    z-index: 2;
-  }
