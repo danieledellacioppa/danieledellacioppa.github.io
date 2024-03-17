@@ -30,10 +30,23 @@
     color: rgb(155, 204, 0);
 }
 
+.card, .card-body {
+    border-radius: 15px; /* Applica un bordo arrotondato a tutti e quattro gli angoli della card e del suo contenuto */
+    text-align: center; /* Centra il testo all'interno del corpo della card */
+}
+
+.card img.card-img-top {
+    border-top-left-radius: 15px; /* Mantiene l'angolo in alto a sinistra dell'immagine arrotondato */
+    border-top-right-radius: 15px; /* Mantiene l'angolo in alto a destra dell'immagine arrotondato */
+    border-bottom-left-radius: 15px; /* Mantiene l'angolo in basso a sinistra dell'immagine arrotondato */
+    border-bottom-right-radius: 15px; /* Mantiene l'angolo in basso a destra dell'immagine arrotondato */
+}
+
+
 
 
 #progress-bars3-2.progress-bars3.cid-quiZUT2MPU {
-    background-color: #0b1c71; /* o qualsiasi colore blu tu desideri */
+    background-color: rgb(155, 204, 0);
 }
 
 
