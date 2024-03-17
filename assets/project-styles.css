@@ -82,18 +82,18 @@
 
 /* Per i link nel footer, potresti voler cambiare anche il loro colore per farli risaltare */
 #footer5-1 a {
-    color: #ffffff; /* Bianco */
+    color: #3c3c3c; /* Bianco */
 }
 
 /* Modifica il colore delle icone social per migliorare la visibilità */
 #footer5-1 .socicon {
-    color: #ffffff; /* Bianco */
+    color: #4a4a4a; /* Bianco */
     border-color: #ffffff; /* Opzionale: se le icone hanno un bordo e vuoi cambiarne il colore */
 }
 
 /* Se vuoi modificare lo stile al passaggio del mouse sui link social */
 #footer5-1 .socicon:hover {
-    color: #CCCCCC; /* Grigio chiaro */
+    color: #ffffff; /* Grigio chiaro */
     border-color: #CCCCCC; /* Opzionale: per il bordo, se presente */
 }
   
