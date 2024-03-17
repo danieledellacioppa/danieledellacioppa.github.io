@@ -22,8 +22,8 @@
     border-radius: 50%; /* Rende l'immagine circolare */
     border: 24px solid rgb(155, 204, 0); 
     object-fit: cover; /* Assicura che l'immagine copra completamente la forma senza essere distorta */
-    width: 500px; /* Imposta la larghezza desiderata */
-    height: 500px; /* Imposta l'altezza uguale alla larghezza per mantenere la forma circolare */
+    width: 300px; /* Imposta la larghezza desiderata */
+    height: 300px; /* Imposta l'altezza uguale alla larghezza per mantenere la forma circolare */
 }
 
 
