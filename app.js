@@ -51,10 +51,13 @@ function animate() {
     // Calcola le nuove posizioni per la rotazione attorno alla sfera
     cube1.position.x = Math.cos(angle) * radius;
     cube1.position.y = Math.sin(angle) * radius;
+    cube1.position.z = Math.sin(angle) * radius;
     cube2.position.x = Math.cos(angle + Math.PI * 2 / 3) * radius;
+    cube2.position.z = Math.sin(angle + Math.PI * 2 / 3) * radius;
     cube2.position.y = Math.sin(angle + Math.PI * 2 / 3) * radius;
     cube3.position.x = Math.cos(angle + Math.PI * 4 / 3) * radius;
     cube3.position.y = Math.sin(angle + Math.PI * 4 / 3) * radius;
+    cube3.position.z = Math.sin(angle + Math.PI * 4 / 3) * radius;
 
     renderer.render(scene, camera);
 }
