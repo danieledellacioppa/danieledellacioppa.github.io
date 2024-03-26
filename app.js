@@ -2,11 +2,11 @@ console.log("Il file JavaScript è stato caricato correttamente!");
 let scene = new THREE.Scene();
 let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 let renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(100, 100); // Assicurati che queste dimensioni corrispondano a quelle del contenitore
 
-// Sfondo rgb(155, 204, 0);
-renderer.setClearColor(0x9bcc00, 1);
-document.body.appendChild(renderer.domElement);
+renderer.setClearColor(0x505050, 0.45);
+document.getElementById('threejs-scene-container').appendChild(renderer.domElement);
+
 
 let light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
 scene.add(light);

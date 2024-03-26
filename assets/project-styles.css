@@ -96,4 +96,15 @@
     color: #ffffff; /* Grigio chiaro */
     border-color: #CCCCCC; /* Opzionale: per il bordo, se presente */
 }
-  
+
+
+.name-and-scene {
+    display: flex;
+    align-items: center;
+}
+
+#threejs-scene-container {
+    width: 100px; /* O la dimensione desiderata */
+    height: 100px; /* O la dimensione desiderata */
+    margin-left: 20px;
+}
