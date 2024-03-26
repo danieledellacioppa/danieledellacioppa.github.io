@@ -2,7 +2,7 @@ console.log("Il file JavaScript è stato caricato correttamente!");
 let scene = new THREE.Scene();
 let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 let renderer = new THREE.WebGLRenderer();
-renderer.setSize(100, 100); // Assicurati che queste dimensioni corrispondano a quelle del contenitore
+renderer.setSize(200, 100); // Assicurati che queste dimensioni corrispondano a quelle del contenitore
 
 renderer.setClearColor(0x505050, 0.45);
 document.getElementById('threejs-scene-container').appendChild(renderer.domElement);
