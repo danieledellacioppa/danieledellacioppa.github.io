@@ -6,7 +6,6 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 // Sfondo rgb(155, 204, 0);
 renderer.setClearColor(0x9bcc00, 1);
-
 document.body.appendChild(renderer.domElement);
 
 let light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
@@ -17,50 +16,48 @@ camera.position.z = 5;
 let geometry = new THREE.BoxGeometry();
 let material = new THREE.MeshStandardMaterial({ color: 0x9bcc00 });
 
-// Sfera al centro
+// Sfera al centro (simula il nucleo)
 let sphere = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 32), material);
 scene.add(sphere);
 
-// Cubo 1 a sinistra della sfera
+// Cubi (simulano gli elettroni)
 let cube1 = new THREE.Mesh(geometry, material);
-cube1.position.set(-2, 0, 0);
-cube1.userData = { URL: "https://github.com/danieledellacioppa/Zip-JSON-Editor" };
-scene.add(cube1);
-
-// Cubo 2 a destra della sfera
 let cube2 = new THREE.Mesh(geometry, material);
-cube2.position.set(2, 0, 0);
-cube2.userData = { URL: "https://github.com/danieledellacioppa/Jetpack-Dagger-Minimalistic-Launcher-for-Android-10" };
-scene.add(cube2);
-
-// Esagono sopra la sfera
 let cube3 = new THREE.Mesh(geometry, material);
-cube3.position.set(1, 0, 0);
+scene.add(cube1);
+scene.add(cube2);
 scene.add(cube3);
 
-// Variabili per l'animazione della rotazione
-let angle = 0;
+let angle1 = 0;
+let angle2 = 0;
+let angle3 = 0;
 let radius = 2;
 
 function animate() {
     requestAnimationFrame(animate);
 
-    // Aggiorna l'angolo per la rotazione
-    angle += 0.01;
+    // Movimento "elettrone" 1
+    angle1 += 0.02;
+    cube1.position.x = Math.cos(angle1) * radius;
+    cube1.position.y = Math.sin(angle1) * radius;
+    cube1.rotation.x += 0.01;
+    cube1.rotation.y += 0.01;
 
-    // Calcola le nuove posizioni per la rotazione attorno alla sfera
-    cube1.position.x = Math.cos(angle) * radius;
-    cube1.position.y = Math.sin(angle) * radius;
-    cube1.position.z = Math.sin(angle) * radius;
-    cube2.position.x = Math.cos(angle + Math.PI * 2 / 3) * radius;
-    cube2.position.z = Math.sin(angle + Math.PI * 2 / 3) * radius;
-    cube2.position.y = Math.sin(angle + Math.PI * 2 / 3) * radius;
-    cube3.position.x = Math.cos(angle + Math.PI * 4 / 3) * radius;
-    cube3.position.y = Math.sin(angle + Math.PI * 4 / 3) * radius;
-    cube3.position.z = Math.sin(angle + Math.PI * 4 / 3) * radius;
+    // Movimento "elettrone" 2 - in un piano perpendicolare al primo
+    angle2 += 0.03;
+    cube2.position.x = Math.cos(angle2) * radius;
+    cube2.position.z = Math.sin(angle2) * radius;
+    cube2.rotation.x += 0.01;
+    cube2.rotation.z += 0.01;
+
+    // Movimento "elettrone" 3 - in un piano inclinato
+    angle3 += 0.04;
+    cube3.position.y = Math.cos(angle3) * radius;
+    cube3.position.z = Math.sin(angle3) * radius;
+    cube3.rotation.y += 0.01;
+    cube3.rotation.z += 0.01;
 
     renderer.render(scene, camera);
 }
 
 animate();
-
