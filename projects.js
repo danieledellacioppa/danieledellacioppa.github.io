@@ -30,7 +30,7 @@ const projects = [
                 <div class="card-body">
                     <h5 class="project-title">${project.nome}</h5>
                     <p class="project-description">${project.descrizione}</p>
-                    <a href="${project.url}" class="btn btn-primary">Vedi Progetto</a>
+                    <a href="${project.url}" class="btn btn-primary">Go to Project</a>
                 </div>
             </div>
         `;
