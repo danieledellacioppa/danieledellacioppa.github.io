@@ -3,7 +3,7 @@ const projects = [
     {
       nome: "Jetpack Reactive Launcher",
       descrizione: "A Super Simple Launcher for Android devices with Jetpack Compose and Reactive Programming.",
-      imageUrl: "https://github.com/danieledellacioppa/CLI-Launcher/blob/main/look.png",
+      imageUrl: "https://github.com/danieledellacioppa/CLI-Launcher/blob/main/look.png?raw=true",
       url: "https://github.com/danieledellacioppa/CLI-Launcher"
     },
     {
