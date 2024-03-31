@@ -1,10 +1,10 @@
 // Array dei progetti
 const projects = [
     {
-      nome: "Progetto 1",
-      descrizione: "Descrizione del Progetto 1.",
-      imageUrl: "https://danieledellacioppa.github.io/assets/images/esempio1.png",
-      url: "http://linkalprogetto1.com"
+      nome: "Jetpack Reactive Launcher",
+      descrizione: "A Super Simple Launcher for Android devices with Jetpack Compose and Reactive Programming.",
+      imageUrl: "https://github.com/danieledellacioppa/CLI-Launcher/blob/main/look.png",
+      url: "https://github.com/danieledellacioppa/CLI-Launcher"
     },
     {
       nome: "Progetto 2",
