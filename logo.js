@@ -118,8 +118,16 @@ trapezoidShape.lineTo(lowerWidth / 2, -trapezoidHeight / 2);
 trapezoidShape.lineTo(-lowerWidth / 2, -trapezoidHeight / 2);
 trapezoidShape.closePath();
 
-// Crea la geometria e il mesh per il trapezio
-const trapezoidGeometry = new THREE.ShapeGeometry(trapezoidShape);
+// Parametri per l'estrusione
+const extrudeSettings = {
+    steps: 2,
+    depth: 0.05, // Uguale alla 'height' del testo per mantenere la consistenza
+    bevelEnabled: false, // Nessun smussamento per mantenere la forma netta
+};
+
+// Crea la geometria dell'estrusione
+const trapezoidGeometry = new THREE.ExtrudeGeometry(trapezoidShape, extrudeSettings);
+
 const trapezoidMesh = new THREE.Mesh(trapezoidGeometry, barMaterial);
 
 // Posizionamento e rotazione
