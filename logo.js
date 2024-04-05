@@ -139,6 +139,79 @@ group.add(trapezoidMesh);
 // -----------------------------------------------------------------------------trapezio FINE
 
 
+// -----------------------------------------------------------------------------secondo trapezio
+// Secondo trapezio
+const secondTrapezoidShape = new THREE.Shape();
+// Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
+secondTrapezoidShape.moveTo(-upperWidth / 1.7, trapezoidHeight / 2);
+secondTrapezoidShape.lineTo(upperWidth / 1.7, trapezoidHeight / 2);
+secondTrapezoidShape.lineTo(lowerWidth / 1.7, -trapezoidHeight / 2);
+secondTrapezoidShape.lineTo(-lowerWidth / 1.7, -trapezoidHeight / 2);
+secondTrapezoidShape.closePath();
+
+const secondTrapezoidGeometry = new THREE.ExtrudeGeometry(secondTrapezoidShape, extrudeSettings);
+
+const secondTrapezoidMesh = new THREE.Mesh(secondTrapezoidGeometry, barMaterial);
+
+// Posizionamento del secondo trapezio un po' più in basso
+// Modifica il valore di .y per regolare la distanza dal primo trapezio
+secondTrapezoidMesh.position.set(+0.15, 0.4, 0); // Aggiusta .y in base al layout desiderato
+secondTrapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
+
+// Aggiungi il secondo trapezio al gruppo
+group.add(secondTrapezoidMesh);
+// -----------------------------------------------------------------------------secondo trapezio FINE
+
+// -----------------------------------------------------------------------------terzo trapezio
+
+// Terzo trapezio
+const thirdTrapezoidShape = new THREE.Shape();
+
+// Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
+thirdTrapezoidShape.moveTo(-upperWidth / 2.4, trapezoidHeight / 3.1);
+thirdTrapezoidShape.lineTo(upperWidth / 2.4, trapezoidHeight / 3.1);
+thirdTrapezoidShape.lineTo(lowerWidth / 2.4, -trapezoidHeight / 3.1);
+thirdTrapezoidShape.lineTo(-lowerWidth / 2.4, -trapezoidHeight / 3.1);
+thirdTrapezoidShape.closePath();
+
+const thirdTrapezoidGeometry = new THREE.ExtrudeGeometry(thirdTrapezoidShape, extrudeSettings);
+
+const thirdTrapezoidMesh = new THREE.Mesh(thirdTrapezoidGeometry, barMaterial);
+
+// Posizionamento del terzo trapezio un po' più in basso
+// Modifica il valore di .y per regolare la distanza dal secondo trapezio
+thirdTrapezoidMesh.position.set(+0.23, 0.57, 0); // Aggiusta .y in base al layout desiderato
+thirdTrapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
+
+// Aggiungi il terzo trapezio al gruppo
+group.add(thirdTrapezoidMesh);
+// -----------------------------------------------------------------------------terzo trapezio FINE
+
+// -----------------------------------------------------------------------------quarto trapezio
+const fourthTrapezoidShape = new THREE.Shape();
+
+// Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
+fourthTrapezoidShape.moveTo(-upperWidth / 3.1, trapezoidHeight / 3.5);
+fourthTrapezoidShape.lineTo(upperWidth / 3.1, trapezoidHeight / 3.5);
+fourthTrapezoidShape.lineTo(lowerWidth / 3.1, -trapezoidHeight / 3.5);
+fourthTrapezoidShape.lineTo(-lowerWidth / 3.1, -trapezoidHeight / 3.5);
+fourthTrapezoidShape.closePath();
+
+const fourthTrapezoidGeometry = new THREE.ExtrudeGeometry(fourthTrapezoidShape, extrudeSettings);
+
+const fourthTrapezoidMesh = new THREE.Mesh(fourthTrapezoidGeometry, barMaterial);
+
+// Posizionamento del quarto trapezio un po' più in basso
+// Modifica il valore di .y per regolare la distanza dal terzo trapezio
+
+fourthTrapezoidMesh.position.set(+0.25, 0.65, 0); // Aggiusta .y in base al layout desiderato
+fourthTrapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
+
+// Aggiungi il quarto trapezio al gruppo
+group.add(fourthTrapezoidMesh);
+// -----------------------------------------------------------------------------quarto trapezio FINE
+
+
 
     
 
