@@ -21,13 +21,8 @@ loader.load('https://threejs.org/examples/fonts/optimer_bold.typeface.json', fun
     });
     textGeometry.computeBoundingBox();
     
-    // const textMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
-
-    const textMaterial = new THREE.MeshPhongMaterial({
-        color: 0x0000ff,
-        specular: 0xffffff,
-        shininess: 50
-    });
+    // Materiale per il testo (grigio scuro)
+    const textMaterial = new THREE.MeshBasicMaterial({ color: 0x333333 });
     
     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
     
@@ -60,7 +55,7 @@ loader.load('https://threejs.org/examples/fonts/optimer_bold.typeface.json', fun
         shape.closePath();
 
         const geometry = new THREE.ShapeGeometry(shape);
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, side: THREE.DoubleSide });
+        const material = new THREE.MeshBasicMaterial({ color: 0x333333, side: THREE.DoubleSide });
         const mesh = new THREE.Mesh(geometry, material); // Questa è la linea mancante per creare l'oggetto mesh
 
         // Dopo aver creato l'ottagono, aggiungilo al gruppo anziché direttamente alla scena
@@ -114,10 +109,11 @@ const barHeight = 0.05; // Thickness of the bars
 const barDepth = 0.05; // Depth of the bars, assuming a relatively flat shape
 
 // Material for the bars (you can reuse the text material or create a new one)
-const barMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+// colore delle barre (bianco)
+const barMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
 // Upper bar
-const upperBarGeometry = new THREE.BoxGeometry(barWidth+0.3, barHeight, barDepth);
+const upperBarGeometry = new THREE.BoxGeometry(barWidth+0.3, barHeight, barDepth+0.05);
 const upperBarMesh = new THREE.Mesh(upperBarGeometry, barMaterial);
 upperBarMesh.position.x = textMesh.position.x + 0.62; // Adjust this value to position the bar above the text
 upperBarMesh.position.y = textMesh.position.y + 0.20; // Adjust this value to position the bar above the text
@@ -125,7 +121,7 @@ upperBarMesh.rotation.z = -Math.PI / 8; // Annulla la rotazione del gruppo/ottag
 group.add(upperBarMesh);
 
 // Lower bar
-const lowerBarGeometry = new THREE.BoxGeometry(barWidth+0.3, barHeight, barDepth);
+const lowerBarGeometry = new THREE.BoxGeometry(barWidth+0.3, barHeight, barDepth+0.05);
 const lowerBarMesh = new THREE.Mesh(lowerBarGeometry, barMaterial);
 lowerBarMesh.position.x = textMesh.position.x + 0.37; // Adjust this value to position the bar below the text
 lowerBarMesh.position.y = textMesh.position.y - 0.44; // Adjust this value to position the bar below the text
@@ -152,10 +148,10 @@ const trapezoidHeight = barHeight; // Utilizza l'altezza delle barre per l'altez
 const widthDifference = (lowerWidth - upperWidth) / 2;
 
 // Punti per il trapezio, partendo dall'angolo in alto a sinistra e procedendo in senso orario
-trapezoidShape.moveTo(-upperWidth / 2.00, trapezoidHeight / 2);
-trapezoidShape.lineTo(upperWidth / 2.00, trapezoidHeight / 2);
-trapezoidShape.lineTo(lowerWidth / 2, -trapezoidHeight / 2);
-trapezoidShape.lineTo(-lowerWidth / 2, -trapezoidHeight / 2);
+trapezoidShape.moveTo(-upperWidth / 1.9, trapezoidHeight / 2);
+trapezoidShape.lineTo(upperWidth / 1.9, trapezoidHeight / 2);
+trapezoidShape.lineTo(lowerWidth / 1.9, -trapezoidHeight / 2);
+trapezoidShape.lineTo(-lowerWidth / 1.9, -trapezoidHeight / 2);
 trapezoidShape.closePath();
 
 // Parametri per l'estrusione
@@ -183,10 +179,10 @@ group.add(trapezoidMesh);
 // Secondo trapezio
 const secondTrapezoidShape = new THREE.Shape();
 // Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
-secondTrapezoidShape.moveTo(-upperWidth / 1.7, trapezoidHeight / 2);
-secondTrapezoidShape.lineTo(upperWidth / 1.7, trapezoidHeight / 2);
-secondTrapezoidShape.lineTo(lowerWidth / 1.7, -trapezoidHeight / 2);
-secondTrapezoidShape.lineTo(-lowerWidth / 1.7, -trapezoidHeight / 2);
+secondTrapezoidShape.moveTo(-upperWidth / 1.6, trapezoidHeight / 2);
+secondTrapezoidShape.lineTo(upperWidth / 1.6, trapezoidHeight / 2);
+secondTrapezoidShape.lineTo(lowerWidth / 1.63, -trapezoidHeight / 2);
+secondTrapezoidShape.lineTo(-lowerWidth / 1.63, -trapezoidHeight / 2);
 secondTrapezoidShape.closePath();
 
 const secondTrapezoidGeometry = new THREE.ExtrudeGeometry(secondTrapezoidShape, extrudeSettings);
@@ -208,10 +204,10 @@ group.add(secondTrapezoidMesh);
 const thirdTrapezoidShape = new THREE.Shape();
 
 // Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
-thirdTrapezoidShape.moveTo(-upperWidth / 2.25, trapezoidHeight / 3.1);
-thirdTrapezoidShape.lineTo(upperWidth / 2.25, trapezoidHeight / 3.1);
-thirdTrapezoidShape.lineTo(lowerWidth / 2.3, -trapezoidHeight / 3.1);
-thirdTrapezoidShape.lineTo(-lowerWidth / 2.3, -trapezoidHeight / 3.1);
+thirdTrapezoidShape.moveTo(-upperWidth / 2.15, trapezoidHeight / 3.1);
+thirdTrapezoidShape.lineTo(upperWidth / 2.15, trapezoidHeight / 3.1);
+thirdTrapezoidShape.lineTo(lowerWidth / 2.2, -trapezoidHeight / 3.1);
+thirdTrapezoidShape.lineTo(-lowerWidth / 2.2, -trapezoidHeight / 3.1);
 thirdTrapezoidShape.closePath();
 
 const thirdTrapezoidGeometry = new THREE.ExtrudeGeometry(thirdTrapezoidShape, extrudeSettings);
@@ -231,10 +227,10 @@ group.add(thirdTrapezoidMesh);
 const fourthTrapezoidShape = new THREE.Shape();
 
 // Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
-fourthTrapezoidShape.moveTo(-upperWidth / 2.55, trapezoidHeight / 3.5);
-fourthTrapezoidShape.lineTo(upperWidth / 2.55, trapezoidHeight / 3.5);
-fourthTrapezoidShape.lineTo(lowerWidth / 2.6, -trapezoidHeight / 3.5);
-fourthTrapezoidShape.lineTo(-lowerWidth / 2.6, -trapezoidHeight / 3.5);
+fourthTrapezoidShape.moveTo(-upperWidth / 2.45, trapezoidHeight / 3.5);
+fourthTrapezoidShape.lineTo(upperWidth / 2.45, trapezoidHeight / 3.5);
+fourthTrapezoidShape.lineTo(lowerWidth / 2.5, -trapezoidHeight / 3.5);
+fourthTrapezoidShape.lineTo(-lowerWidth / 2.5, -trapezoidHeight / 3.5);
 fourthTrapezoidShape.closePath();
 
 const fourthTrapezoidGeometry = new THREE.ExtrudeGeometry(fourthTrapezoidShape, extrudeSettings);
@@ -256,10 +252,10 @@ group.add(fourthTrapezoidMesh);
 const fifthTrapezoidShape = new THREE.Shape();
 
 // Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
-fifthTrapezoidShape.moveTo(-upperWidth / 2.85, trapezoidHeight / 4.5);
-fifthTrapezoidShape.lineTo(upperWidth / 2.85, trapezoidHeight / 4.5);
-fifthTrapezoidShape.lineTo(lowerWidth / 2.9, -trapezoidHeight / 4.5);
-fifthTrapezoidShape.lineTo(-lowerWidth / 2.9, -trapezoidHeight / 4.5);
+fifthTrapezoidShape.moveTo(-upperWidth / 2.75, trapezoidHeight / 4.5);
+fifthTrapezoidShape.lineTo(upperWidth / 2.75, trapezoidHeight / 4.5);
+fifthTrapezoidShape.lineTo(lowerWidth / 2.8, -trapezoidHeight / 4.5);
+fifthTrapezoidShape.lineTo(-lowerWidth / 2.8, -trapezoidHeight / 4.5);
 fifthTrapezoidShape.closePath();
 
 const fifthTrapezoidGeometry = new THREE.ExtrudeGeometry(fifthTrapezoidShape, extrudeSettings);
@@ -294,7 +290,7 @@ const sixthTrapezoidMesh = new THREE.Mesh(sixthTrapezoidGeometry, barMaterial);
 // Posizionamento del sesto trapezio un po' più in basso
 // Modifica il valore di .y per regolare la distanza dal quinto trapezio
 
-sixthTrapezoidMesh.position.set(+0.32, 0.73, 0); // Aggiusta .y in base al layout desiderato
+sixthTrapezoidMesh.position.set(+0.3, 0.73, 0); // Aggiusta .y in base al layout desiderato
 sixthTrapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
 
 // Aggiungi il sesto trapezio al gruppo
