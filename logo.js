@@ -10,7 +10,7 @@ camera.position.z = 2;
 const group = new THREE.Group(); // Crea un gruppo per unire testo e ottagono
 
 const loader = new THREE.FontLoader();
-loader.load('./fonts/Roundo_Regular.json', function (font) {
+loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
     // Crea il testo
     const textGeometry = new THREE.TextGeometry('AKHTER', {
         font: font,
