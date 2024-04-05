@@ -10,7 +10,9 @@ camera.position.z = 2;
 const group = new THREE.Group(); // Crea un gruppo per unire testo e ottagono
 
 const loader = new THREE.FontLoader();
-loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+
+// loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+loader.load('https://threejs.org/examples/fonts/optimer_bold.typeface.json', function (font) {
     // Crea il testo
     const textGeometry = new THREE.TextGeometry('AKHTER', {
         font: font,
@@ -19,7 +21,14 @@ loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json
     });
     textGeometry.computeBoundingBox();
     
-    const textMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+    // const textMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+
+    const textMaterial = new THREE.MeshPhongMaterial({
+        color: 0x0000ff,
+        specular: 0xffffff,
+        shininess: 50
+    });
+    
     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
     
     // Calcola la larghezza del testo per centrarlo
@@ -90,6 +99,39 @@ group.add(lowerBarMesh);
 // Rotate the bars to align with the octagon if needed
 // upperBarMesh.rotation.z = group.rotation.z;
 // lowerBarMesh.rotation.z = group.rotation.z;
+
+// -----------------------------------------------------------------------------trapezio
+// Aggiustamenti per renderlo più evidente come trapezio
+const upperWidth = barWidth - 0.2; // Rendi la larghezza superiore leggermente più stretta
+const lowerWidth = barWidth - 0.1; // Rendi la larghezza inferiore leggermente più larga
+
+const trapezoidShape = new THREE.Shape();
+const trapezoidHeight = barHeight; // Utilizza l'altezza delle barre per l'altezza del trapezio
+
+// Calcola l'offset da ciascun lato per la differenza di larghezza
+const widthDifference = (lowerWidth - upperWidth) / 2;
+
+// Punti per il trapezio, partendo dall'angolo in alto a sinistra e procedendo in senso orario
+trapezoidShape.moveTo(-upperWidth / 2, trapezoidHeight / 2);
+trapezoidShape.lineTo(upperWidth / 2, trapezoidHeight / 2);
+trapezoidShape.lineTo(lowerWidth / 2, -trapezoidHeight / 2);
+trapezoidShape.lineTo(-lowerWidth / 2, -trapezoidHeight / 2);
+trapezoidShape.closePath();
+
+// Crea la geometria e il mesh per il trapezio
+const trapezoidGeometry = new THREE.ShapeGeometry(trapezoidShape);
+const trapezoidMesh = new THREE.Mesh(trapezoidGeometry, barMaterial);
+
+// Posizionamento e rotazione
+trapezoidMesh.position.set(+0.2, 0.5, 0); // Aggiusta questa posizione in base al layout desiderato
+trapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
+
+// Aggiungi il trapezio al gruppo
+group.add(trapezoidMesh);
+// -----------------------------------------------------------------------------trapezio FINE
+
+
+
     
 
             // Ruota il gruppo per allineare l'ottagono
