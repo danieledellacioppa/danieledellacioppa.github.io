@@ -66,7 +66,47 @@ loader.load('https://threejs.org/examples/fonts/optimer_bold.typeface.json', fun
         // Dopo aver creato l'ottagono, aggiungilo al gruppo anziché direttamente alla scena
         group.add(mesh);
 
-    // Dopo aver aggiunto il testo e l'ottagono al gruppo
+// Dopo aver aggiunto l'ottagono preesistente al gruppo...
+
+// Creazione di un nuovo ottagono più piccolo e grigio
+const smallerRadius = radius * 0.9; // Rendi l'ottagono più piccolo
+const smallerShape = new THREE.Shape();
+for (let i = 0; i < 8; i++) {
+    const angle = i * exteriorAngle;
+    const x = smallerRadius * Math.cos(angle);
+    const y = smallerRadius * Math.sin(angle);
+
+    if (i === 0) {
+        smallerShape.moveTo(x, y);
+    } else {
+        smallerShape.lineTo(x, y);
+    }
+}
+smallerShape.closePath();
+
+// Parametri per l'estrusione dell'ottagono più piccolo con maggiore profondità
+const extrudeSettingsSmaller = {
+    steps: 2,
+    depth: 0.2, // Aumenta la profondità per rendere l'ottagono più piccolo più spesso
+    bevelEnabled: false, // Disabilita lo smussamento per mantenere bordi netti
+};
+
+// Creazione della geometria estrusa per lo smallerShape con maggiore profondità
+const smallerExtrudeGeometry = new THREE.ExtrudeGeometry(smallerShape, extrudeSettingsSmaller);
+
+// Creazione del materiale per l'ottagono più piccolo (grigio chiaro)
+const smallerExtrudeMaterial = new THREE.MeshBasicMaterial({ color: 0xaaaaaa });
+
+// Creazione del mesh per l'ottagono più piccolo estruso con maggiore profondità
+const smallerExtrudeMesh = new THREE.Mesh(smallerExtrudeGeometry, smallerExtrudeMaterial);
+
+// Posiziona l'ottagono più piccolo al centro dell'ottagono più grande
+smallerExtrudeMesh.position.z =- 0.16 // Regola questa posizione se necessario per l'effetto visivo desiderato
+
+// Aggiunta del nuovo ottagono più piccolo e con maggiore profondità al gruppo
+group.add(smallerExtrudeMesh);
+
+
 
 // Parametri per le barre
 const barWidth = textWidth + 0.4; // Slightly wider than the text width
