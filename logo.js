@@ -10,7 +10,7 @@ camera.position.z = 2;
 const group = new THREE.Group(); // Crea un gruppo per unire testo e ottagono
 
 const loader = new THREE.FontLoader();
-loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+loader.load('./fonts/Roundo_Regular.json', function (font) {
     // Crea il testo
     const textGeometry = new THREE.TextGeometry('AKHTER', {
         font: font,
@@ -56,6 +56,41 @@ loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json
 
         // Dopo aver creato l'ottagono, aggiungilo al gruppo anziché direttamente alla scena
         group.add(mesh);
+
+    // Dopo aver aggiunto il testo e l'ottagono al gruppo
+
+// Parametri per le barre
+const barWidth = textWidth + 0.4; // Slightly wider than the text width
+const barHeight = 0.05; // Thickness of the bars
+const barDepth = 0.05; // Depth of the bars, assuming a relatively flat shape
+
+// Material for the bars (you can reuse the text material or create a new one)
+const barMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+
+// Upper bar
+const upperBarGeometry = new THREE.BoxGeometry(barWidth, barHeight, barDepth);
+const upperBarMesh = new THREE.Mesh(upperBarGeometry, barMaterial);
+upperBarMesh.position.x = textMesh.position.x + 0.57; // Adjust this value to position the bar above the text
+upperBarMesh.position.y = textMesh.position.y + 0.05; // Adjust this value to position the bar above the text
+upperBarMesh.rotation.z = -Math.PI / 8; // Annulla la rotazione del gruppo/ottagono
+group.add(upperBarMesh);
+
+// Lower bar
+const lowerBarGeometry = new THREE.BoxGeometry(barWidth, barHeight, barDepth);
+const lowerBarMesh = new THREE.Mesh(lowerBarGeometry, barMaterial);
+lowerBarMesh.position.x = textMesh.position.x + 0.45; // Adjust this value to position the bar below the text
+lowerBarMesh.position.y = textMesh.position.y - 0.25; // Adjust this value to position the bar below the text
+lowerBarMesh.rotation.z = -Math.PI / 8; // Annulla la rotazione del gruppo/ottagono
+group.add(lowerBarMesh);
+
+// Make sure the bars are centered with respect to the text
+// upperBarMesh.position.x = textMesh.position.x;
+// lowerBarMesh.position.x = textMesh.position.x;
+
+// Rotate the bars to align with the octagon if needed
+// upperBarMesh.rotation.z = group.rotation.z;
+// lowerBarMesh.rotation.z = group.rotation.z;
+    
 
             // Ruota il gruppo per allineare l'ottagono
     group.rotation.z = Math.PI / 8;
