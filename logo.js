@@ -4,6 +4,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x9bcc00, 1);
 document.body.appendChild(renderer.domElement);
 camera.position.z = 2;
 
@@ -100,6 +101,45 @@ smallerExtrudeMesh.position.z =- 0.16 // Regola questa posizione se necessario p
 
 // Aggiunta del nuovo ottagono più piccolo e con maggiore profondità al gruppo
 group.add(smallerExtrudeMesh);
+
+
+//creazione di un nuovo ottagono ancora più piccolo e grigio chiaro
+const smallestRadius = radius * 0.91; // Rendi l'ottagono più piccolo
+const smallestShape = new THREE.Shape();
+for (let i = 0; i < 8; i++) {
+    const angle = i * exteriorAngle;
+    const x = smallestRadius * Math.cos(angle);
+    const y = smallestRadius * Math.sin(angle);
+
+    if (i === 0) {
+        smallestShape.moveTo(x, y);
+    } else {
+        smallestShape.lineTo(x, y);
+    }
+}
+smallestShape.closePath();
+
+// Parametri per l'estrusione dell'ottagono più piccolo con maggiore profondità
+const extrudeSettingsSmallest = {
+    steps: 2,
+    depth: 0.2, // Aumenta la profondità per rendere l'ottagono più piccolo più spesso
+    bevelEnabled: false, // Disabilita lo smussamento per mantenere bordi netti
+};
+
+// Creazione della geometria estrusa per lo smallestShape con maggiore profondità
+const smallestExtrudeGeometry = new THREE.ExtrudeGeometry(smallestShape, extrudeSettingsSmallest);
+
+// Creazione del materiale per l'ottagono più piccolo (grigio chiarissimo)
+const smallestExtrudeMaterial = new THREE.MeshBasicMaterial({ color: 0xcccccc });
+
+// Creazione del mesh per l'ottagono più piccolo estruso con maggiore profondità
+const smallestExtrudeMesh = new THREE.Mesh(smallestExtrudeGeometry, smallestExtrudeMaterial);
+
+// Posiziona l'ottagono più piccolo al centro dell'ottagono più grande
+smallestExtrudeMesh.position.z = -0.17 // Regola questa posizione se necessario per l'effetto visivo desiderato
+
+// Aggiunta del nuovo ottagono più piccolo e con maggiore profondità al gruppo
+group.add(smallestExtrudeMesh);
 
 
 
