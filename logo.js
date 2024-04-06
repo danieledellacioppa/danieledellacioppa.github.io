@@ -10,6 +10,13 @@ camera.position.z = 2;
 
 const group = new THREE.Group(); // Crea un gruppo per unire testo e ottagono
 
+// Crea un punto luce
+const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+pointLight.position.set(5, 5, 5); // Posiziona la luce
+
+// Aggiungi il punto di luce alla scena
+scene.add(pointLight);
+
 const loader = new THREE.FontLoader();
 
 // loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
@@ -168,14 +175,6 @@ lowerBarMesh.position.y = textMesh.position.y - 0.44; // Adjust this value to po
 lowerBarMesh.rotation.z = -Math.PI / 8; // Annulla la rotazione del gruppo/ottagono
 group.add(lowerBarMesh);
 
-// Make sure the bars are centered with respect to the text
-// upperBarMesh.position.x = textMesh.position.x;
-// lowerBarMesh.position.x = textMesh.position.x;
-
-// Rotate the bars to align with the octagon if needed
-// upperBarMesh.rotation.z = group.rotation.z;
-// lowerBarMesh.rotation.z = group.rotation.z;
-
 // -----------------------------------------------------------------------------trapezio
 // Aggiustamenti per renderlo più evidente come trapezio
 const upperWidth = barWidth - 0.2; // Rendi la larghezza superiore leggermente più stretta
@@ -250,19 +249,10 @@ group.add(quintoTrapezioDalBasso);
 const sestoTrapezioDalBasso = createTrapezoid(-0.32, -0.76, 0, 0.7*upperWidth, 0.61*lowerWidth, 0.5*barHeight, 0.05, akhterColorMetalBar);
 group.add(sestoTrapezioDalBasso);
 
-// Crea un punto luce
-const pointLight = new THREE.PointLight(0xffffff, 1, 100);
-pointLight.position.set(5, 5, 5); // Posiziona la luce
-
-// Aggiungi il punto di luce alla scena
-scene.add(pointLight);
-
+// Ruota il gruppo per allineare l'ottagono
+group.rotation.z = Math.PI / 8;
     
-
-            // Ruota il gruppo per allineare l'ottagono
-    group.rotation.z = Math.PI / 8;
-    
-    scene.add(group); // Aggiunge il gruppo alla scena
+scene.add(group); // Aggiunge il gruppo alla scena
 
 });
 
@@ -302,13 +292,26 @@ function createTrapezoid(positionX, positionY, positionZ, upperWidth, lowerWidth
 let oscillationSpeed = 0.01;
 let oscillationAngle = 0;
 
+let lightAngle = 0;
+const lightRadius = 10; // Distanza della luce dal centro del gruppo
+
 function animate() {
     requestAnimationFrame(animate);
     
     // Aggiorna l'angolo di oscillazione
-    oscillationAngle += oscillationSpeed;
+    oscillationAngle += 0.01; // Velocità di oscillazione
     // Applica l'oscillazione al gruppo
-    group.rotation.y = Math.sin(oscillationAngle) * Math.PI / 8;
+    // group.rotation.y = Math.sin(oscillationAngle) * Math.PI / 8;
+
+    // Applica un oscillazione molto piu piccola al gruppo
+    group.rotation.y = Math.sin(oscillationAngle) * Math.PI / 50;
+
+    // Aggiorna l'angolo della luce
+    lightAngle += 0.01; // Velocità di rotazione della luce
+    pointLight.position.x = Math.sin(lightAngle) * lightRadius;
+    // pointLight.position.z = Math.cos(lightAngle) * lightRadius;
+    pointLight.position.y = Math.sin(lightAngle) * lightRadius; // Opzionale, per movimento verticale
+
     
     renderer.render(scene, camera);
 }
