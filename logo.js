@@ -300,9 +300,7 @@ function animate() {
     
     // Aggiorna l'angolo di oscillazione
     oscillationAngle += 0.01; // Velocità di oscillazione
-    // Applica l'oscillazione al gruppo
-    // group.rotation.y = Math.sin(oscillationAngle) * Math.PI / 8;
-
+    
     // Applica un oscillazione molto piu piccola al gruppo
     group.rotation.y = Math.sin(oscillationAngle) * Math.PI / 50;
 
