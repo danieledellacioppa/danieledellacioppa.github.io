@@ -149,8 +149,8 @@ const barHeight = 0.05; // Thickness of the bars
 const barDepth = 0.05; // Depth of the bars, assuming a relatively flat shape
 
 // Material for the bars (you can reuse the text material or create a new one)
-// colore delle barre (bianco)
-const barMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+// colore delle barre (akhterColorMetalBar)
+const barMaterial = new THREE.MeshBasicMaterial({ color: 0x839782 });
 
 // Upper bar
 const upperBarGeometry = new THREE.BoxGeometry(barWidth+0.3, barHeight, barDepth+0.05);
@@ -188,10 +188,10 @@ const trapezoidHeight = barHeight; // Utilizza l'altezza delle barre per l'altez
 const widthDifference = (lowerWidth - upperWidth) / 2;
 
 // Punti per il trapezio, partendo dall'angolo in alto a sinistra e procedendo in senso orario
-trapezoidShape.moveTo(-upperWidth / 1.9, trapezoidHeight / 2);
-trapezoidShape.lineTo(upperWidth / 1.9, trapezoidHeight / 2);
-trapezoidShape.lineTo(lowerWidth / 1.9, -trapezoidHeight / 2);
-trapezoidShape.lineTo(-lowerWidth / 1.9, -trapezoidHeight / 2);
+trapezoidShape.moveTo(-upperWidth / 1.88, trapezoidHeight / 2.2);
+trapezoidShape.lineTo(upperWidth / 1.88, trapezoidHeight / 2.2);
+trapezoidShape.lineTo(lowerWidth / 1.88, -trapezoidHeight / 2.2);
+trapezoidShape.lineTo(-lowerWidth / 1.88, -trapezoidHeight / 2.2);
 trapezoidShape.closePath();
 
 // Parametri per l'estrusione
@@ -214,153 +214,26 @@ trapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
 group.add(trapezoidMesh);
 // -----------------------------------------------------------------------------trapezio FINE
 
+const akhterColorMetalBar = 0x839782; // Colore personalizzato per le barre metalliche
 
-// -----------------------------------------------------------------------------secondo trapezio
-// Secondo trapezio
-const secondTrapezoidShape = new THREE.Shape();
-// Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
-secondTrapezoidShape.moveTo(-upperWidth / 1.6, trapezoidHeight / 2);
-secondTrapezoidShape.lineTo(upperWidth / 1.6, trapezoidHeight / 2);
-secondTrapezoidShape.lineTo(lowerWidth / 1.63, -trapezoidHeight / 2);
-secondTrapezoidShape.lineTo(-lowerWidth / 1.63, -trapezoidHeight / 2);
-secondTrapezoidShape.closePath();
 
-const secondTrapezoidGeometry = new THREE.ExtrudeGeometry(secondTrapezoidShape, extrudeSettings);
+const trapezoid2 = createTrapezoid(0.165, 0.4, 0, 1.24*upperWidth, 1.22*lowerWidth, 0.9*barHeight, 0.05, akhterColorMetalBar);
+group.add(trapezoid2);
 
-const secondTrapezoidMesh = new THREE.Mesh(secondTrapezoidGeometry, barMaterial);
+const trapezoid3 = createTrapezoid(0.23, 0.57, 0, 0.94*upperWidth, 0.94*lowerWidth, 0.8*barHeight, 0.05, akhterColorMetalBar);
+group.add(trapezoid3);
 
-// Posizionamento del secondo trapezio un po' più in basso
-// Modifica il valore di .y per regolare la distanza dal primo trapezio
-secondTrapezoidMesh.position.set(+0.15, 0.4, 0); // Aggiusta .y in base al layout desiderato
-secondTrapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
+const trapezoid4 = createTrapezoid(0.27, 0.64, 0, 0.82*upperWidth, 0.82*lowerWidth, 0.7*barHeight, 0.05, akhterColorMetalBar);
+group.add(trapezoid4);
 
-// Aggiungi il secondo trapezio al gruppo
-group.add(secondTrapezoidMesh);
-// -----------------------------------------------------------------------------secondo trapezio FINE
+const trapezoid5 = createTrapezoid(0.29, 0.71, 0, 0.7*upperWidth, 0.71*lowerWidth, 0.6*barHeight, 0.05, akhterColorMetalBar);
+group.add(trapezoid5);
 
-// -----------------------------------------------------------------------------terzo trapezio
+const trapezoid6 = createTrapezoid(0.32, 0.78, 0, 0.59*upperWidth, 0.60*lowerWidth, 0.5*barHeight, 0.05, akhterColorMetalBar);
+group.add(trapezoid6);
 
-// Terzo trapezio
-const thirdTrapezoidShape = new THREE.Shape();
-
-// Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
-thirdTrapezoidShape.moveTo(-upperWidth / 2.15, trapezoidHeight / 3.1);
-thirdTrapezoidShape.lineTo(upperWidth / 2.15, trapezoidHeight / 3.1);
-thirdTrapezoidShape.lineTo(lowerWidth / 2.2, -trapezoidHeight / 3.1);
-thirdTrapezoidShape.lineTo(-lowerWidth / 2.2, -trapezoidHeight / 3.1);
-thirdTrapezoidShape.closePath();
-
-const thirdTrapezoidGeometry = new THREE.ExtrudeGeometry(thirdTrapezoidShape, extrudeSettings);
-
-const thirdTrapezoidMesh = new THREE.Mesh(thirdTrapezoidGeometry, barMaterial);
-
-// Posizionamento del terzo trapezio un po' più in basso
-// Modifica il valore di .y per regolare la distanza dal secondo trapezio
-thirdTrapezoidMesh.position.set(+0.23, 0.57, 0); // Aggiusta .y in base al layout desiderato
-thirdTrapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
-
-// Aggiungi il terzo trapezio al gruppo
-group.add(thirdTrapezoidMesh);
-// -----------------------------------------------------------------------------terzo trapezio FINE
-
-// -----------------------------------------------------------------------------quarto trapezio
-const fourthTrapezoidShape = new THREE.Shape();
-
-// Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
-fourthTrapezoidShape.moveTo(-upperWidth / 2.45, trapezoidHeight / 3.5);
-fourthTrapezoidShape.lineTo(upperWidth / 2.45, trapezoidHeight / 3.5);
-fourthTrapezoidShape.lineTo(lowerWidth / 2.5, -trapezoidHeight / 3.5);
-fourthTrapezoidShape.lineTo(-lowerWidth / 2.5, -trapezoidHeight / 3.5);
-fourthTrapezoidShape.closePath();
-
-const fourthTrapezoidGeometry = new THREE.ExtrudeGeometry(fourthTrapezoidShape, extrudeSettings);
-
-const fourthTrapezoidMesh = new THREE.Mesh(fourthTrapezoidGeometry, barMaterial);
-
-// Posizionamento del quarto trapezio un po' più in basso
-// Modifica il valore di .y per regolare la distanza dal terzo trapezio
-
-fourthTrapezoidMesh.position.set(+0.26, 0.63, 0); // Aggiusta .y in base al layout desiderato
-fourthTrapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
-
-// Aggiungi il quarto trapezio al gruppo
-group.add(fourthTrapezoidMesh);
-// -----------------------------------------------------------------------------quarto trapezio FINE
-
-// -----------------------------------------------------------------------------quinto trapezio
-
-const fifthTrapezoidShape = new THREE.Shape();
-
-// Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
-fifthTrapezoidShape.moveTo(-upperWidth / 2.75, trapezoidHeight / 4.5);
-fifthTrapezoidShape.lineTo(upperWidth / 2.75, trapezoidHeight / 4.5);
-fifthTrapezoidShape.lineTo(lowerWidth / 2.8, -trapezoidHeight / 4.5);
-fifthTrapezoidShape.lineTo(-lowerWidth / 2.8, -trapezoidHeight / 4.5);
-fifthTrapezoidShape.closePath();
-
-const fifthTrapezoidGeometry = new THREE.ExtrudeGeometry(fifthTrapezoidShape, extrudeSettings);
-
-const fifthTrapezoidMesh = new THREE.Mesh(fifthTrapezoidGeometry, barMaterial);
-
-// Posizionamento del quinto trapezio un po' più in basso
-// Modifica il valore di .y per regolare la distanza dal quarto trapezio
-
-fifthTrapezoidMesh.position.set(+0.29, 0.68, 0); // Aggiusta .y in base al layout desiderato
-fifthTrapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
-
-// Aggiungi il quinto trapezio al gruppo
-group.add(fifthTrapezoidMesh);
-// -----------------------------------------------------------------------------quinto trapezio FINE
-
-// -----------------------------------------------------------------------------sesto trapezio
-
-const sixthTrapezoidShape = new THREE.Shape();
-
-// Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
-sixthTrapezoidShape.moveTo(-upperWidth / 3.15, trapezoidHeight / 5.5);
-sixthTrapezoidShape.lineTo(upperWidth / 3.15, trapezoidHeight / 5.5);
-sixthTrapezoidShape.lineTo(lowerWidth / 3.2, -trapezoidHeight / 5.5);
-sixthTrapezoidShape.lineTo(-lowerWidth / 3.2, -trapezoidHeight / 5.5);
-sixthTrapezoidShape.closePath();
-
-const sixthTrapezoidGeometry = new THREE.ExtrudeGeometry(sixthTrapezoidShape, extrudeSettings);
-
-const sixthTrapezoidMesh = new THREE.Mesh(sixthTrapezoidGeometry, barMaterial);
-
-// Posizionamento del sesto trapezio un po' più in basso
-// Modifica il valore di .y per regolare la distanza dal quinto trapezio
-
-sixthTrapezoidMesh.position.set(+0.3, 0.73, 0); // Aggiusta .y in base al layout desiderato
-sixthTrapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
-
-// Aggiungi il sesto trapezio al gruppo
-group.add(sixthTrapezoidMesh);
-// -----------------------------------------------------------------------------sesto trapezio FINE
-
-// -----------------------------------------------------------------------------primo trapezio dal basso
-
-const primoTrapezioDalBassoShape = new THREE.Shape();
-
-// Puoi riutilizzare le stesse dimensioni o fare leggere modifiche
-primoTrapezioDalBassoShape.moveTo(-upperWidth / 1.55, trapezoidHeight / 2);
-primoTrapezioDalBassoShape.lineTo(upperWidth / 1.55, trapezoidHeight / 2);
-primoTrapezioDalBassoShape.lineTo(lowerWidth / 1.8, -trapezoidHeight / 2);
-primoTrapezioDalBassoShape.lineTo(-lowerWidth / 1.8, -trapezoidHeight / 2);
-primoTrapezioDalBassoShape.closePath();
-
-const primoTrapezioDalBassoGeometry = new THREE.ExtrudeGeometry(primoTrapezioDalBassoShape, extrudeSettings);
-
-const primoTrapezioDalBassoMesh = new THREE.Mesh(primoTrapezioDalBassoGeometry, barMaterial);
-
-// Posizionamento del primo trapezio dal basso un po' più in basso
-// Modifica il valore di .y per regolare la distanza dal sesto trapezio
-
-primoTrapezioDalBassoMesh.position.set(-0.19, -0.43, 0); // Aggiusta .y in base al layout desiderato
-primoTrapezioDalBassoMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
-
-// Aggiungi il primo trapezio dal basso al gruppo
-group.add(primoTrapezioDalBassoMesh);
-// -----------------------------------------------------------------------------primo trapezio dal basso FINE
+const primoTrapezioDalBasso = createTrapezoid(-0.182, -0.435, 0, 1.31*upperWidth, 1.13*lowerWidth, 1*barHeight, 0.05, akhterColorMetalBar);
+group.add(primoTrapezioDalBasso);
 
 // -----------------------------------------------------------------------------secondo trapezio dal basso
 
@@ -497,6 +370,37 @@ group.add(sestoTrapezioDalBassoMesh);
     
     scene.add(group); // Aggiunge il gruppo alla scena
 });
+
+function createTrapezoid(positionX, positionY, positionZ, upperWidth, lowerWidth, height, depth, color) {
+    // Calcola l'offset da ciascun lato per la differenza di larghezza
+    const widthDifference = (lowerWidth - upperWidth) / 2;
+    const trapezoidShape = new THREE.Shape();
+
+    // Punti per il trapezio, partendo dall'angolo in alto a sinistra e procedendo in senso orario
+    trapezoidShape.moveTo(-upperWidth / 2, height / 2);
+    trapezoidShape.lineTo(upperWidth / 2, height / 2);
+    trapezoidShape.lineTo(lowerWidth / 2, -height / 2);
+    trapezoidShape.lineTo(-lowerWidth / 2, -height / 2);
+    trapezoidShape.closePath();
+
+    // Parametri per l'estrusione
+    const extrudeSettings = {
+        steps: 2,
+        depth: depth, // Usa il parametro depth
+        bevelEnabled: false, // Nessun smussamento per mantenere la forma netta
+    };
+
+    // Crea la geometria dell'estrusione e il mesh
+    const trapezoidGeometry = new THREE.ExtrudeGeometry(trapezoidShape, extrudeSettings);
+    const trapezoidMaterial = new THREE.MeshBasicMaterial({ color: color });
+    const trapezoidMesh = new THREE.Mesh(trapezoidGeometry, trapezoidMaterial);
+
+    // Posizionamento e rotazione
+    trapezoidMesh.position.set(positionX, positionY, positionZ);
+    trapezoidMesh.rotation.z = -Math.PI / 8; // Ruota per allineare orizzontalmente
+
+    return trapezoidMesh;
+}
 
 let oscillationSpeed = 0.01;
 let oscillationAngle = 0;
