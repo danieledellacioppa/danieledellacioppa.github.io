@@ -22,8 +22,8 @@ loader.load('https://threejs.org/examples/fonts/optimer_bold.typeface.json', fun
     });
     textGeometry.computeBoundingBox();
     
-    // Materiale per il testo (grigio scuro)
-    const textMaterial = new THREE.MeshBasicMaterial({ color: 0x333333 });
+    // Materiale che reagisce alla luce(grigio scuro)
+        const textMaterial = new THREE.MeshPhongMaterial({ color: 0x333333, side: THREE.DoubleSide });
     
     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
     
@@ -56,7 +56,7 @@ loader.load('https://threejs.org/examples/fonts/optimer_bold.typeface.json', fun
         shape.closePath();
 
         const geometry = new THREE.ShapeGeometry(shape);
-        const material = new THREE.MeshBasicMaterial({ color: 0x333333, side: THREE.DoubleSide });
+        const material = new THREE.MeshPhongMaterial({ color: 0x9bcc00, side: THREE.DoubleSide });
         const mesh = new THREE.Mesh(geometry, material); // Questa è la linea mancante per creare l'oggetto mesh
 
         // Dopo aver creato l'ottagono, aggiungilo al gruppo anziché direttamente alla scena
@@ -91,7 +91,7 @@ const extrudeSettingsSmaller = {
 const smallerExtrudeGeometry = new THREE.ExtrudeGeometry(smallerShape, extrudeSettingsSmaller);
 
 // Creazione del materiale per l'ottagono più piccolo (grigio chiaro)
-const smallerExtrudeMaterial = new THREE.MeshBasicMaterial({ color: 0xaaaaaa });
+const smallerExtrudeMaterial = new THREE.MeshPhongMaterial({ color: 0x6b6b6b, side: THREE.DoubleSide });
 
 // Creazione del mesh per l'ottagono più piccolo estruso con maggiore profondità
 const smallerExtrudeMesh = new THREE.Mesh(smallerExtrudeGeometry, smallerExtrudeMaterial);
@@ -130,7 +130,7 @@ const extrudeSettingsSmallest = {
 const smallestExtrudeGeometry = new THREE.ExtrudeGeometry(smallestShape, extrudeSettingsSmallest);
 
 // Creazione del materiale per l'ottagono più piccolo (grigio chiarissimo)
-const smallestExtrudeMaterial = new THREE.MeshBasicMaterial({ color: 0xcccccc });
+const smallestExtrudeMaterial = new THREE.MeshPhongMaterial({ color: 0xcccccc, side: THREE.DoubleSide });
 
 // Creazione del mesh per l'ottagono più piccolo estruso con maggiore profondità
 const smallestExtrudeMesh = new THREE.Mesh(smallestExtrudeGeometry, smallestExtrudeMaterial);
@@ -150,7 +150,7 @@ const barDepth = 0.05; // Depth of the bars, assuming a relatively flat shape
 
 // Material for the bars (you can reuse the text material or create a new one)
 // colore delle barre (akhterColorMetalBar)
-const barMaterial = new THREE.MeshBasicMaterial({ color: 0x839782 });
+const barMaterial = new THREE.MeshPhongMaterial({ color: 0x839782, side: THREE.DoubleSide });
 
 // Upper bar
 const upperBarGeometry = new THREE.BoxGeometry(barWidth+0.3, barHeight, barDepth+0.05);
@@ -250,6 +250,12 @@ group.add(quintoTrapezioDalBasso);
 const sestoTrapezioDalBasso = createTrapezoid(-0.32, -0.76, 0, 0.7*upperWidth, 0.61*lowerWidth, 0.5*barHeight, 0.05, akhterColorMetalBar);
 group.add(sestoTrapezioDalBasso);
 
+// Crea un punto luce
+const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+pointLight.position.set(5, 5, 5); // Posiziona la luce
+
+// Aggiungi il punto di luce alla scena
+scene.add(pointLight);
 
     
 
@@ -257,7 +263,10 @@ group.add(sestoTrapezioDalBasso);
     group.rotation.z = Math.PI / 8;
     
     scene.add(group); // Aggiunge il gruppo alla scena
+
 });
+
+  
 
 function createTrapezoid(positionX, positionY, positionZ, upperWidth, lowerWidth, height, depth, color) {
     // Calcola l'offset da ciascun lato per la differenza di larghezza
@@ -280,7 +289,7 @@ function createTrapezoid(positionX, positionY, positionZ, upperWidth, lowerWidth
 
     // Crea la geometria dell'estrusione e il mesh
     const trapezoidGeometry = new THREE.ExtrudeGeometry(trapezoidShape, extrudeSettings);
-    const trapezoidMaterial = new THREE.MeshBasicMaterial({ color: color });
+    const trapezoidMaterial = new THREE.MeshPhongMaterial({ color: color, side: THREE.DoubleSide });
     const trapezoidMesh = new THREE.Mesh(trapezoidGeometry, trapezoidMaterial);
 
     // Posizionamento e rotazione
