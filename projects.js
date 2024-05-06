@@ -9,8 +9,8 @@ const projects = [
     {
       nome: "Progetto 2",
       descrizione: "Descrizione del Progetto 2.",
-      imageUrl: "https://danieledellacioppa.github.io/assets/images/esempio2.png",
-      url: "http://linkalprogetto2.com"
+      imageUrl: "https://danieledellacioppa.github.io/assets/images/remote.png",
+      url: "https://github.com/danieledellacioppa/android-remote-control"
     },
     // Altri progetti...
   ];
