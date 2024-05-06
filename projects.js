@@ -7,8 +7,8 @@ const projects = [
       url: "https://github.com/danieledellacioppa/CLI-Launcher"
     },
     {
-      nome: "Progetto 2",
-      descrizione: "Descrizione del Progetto 2.",
+      nome: "Android Remote Control",
+      descrizione: "Turning an an Android device into an Android Remote Controller.",
       imageUrl: "https://danieledellacioppa.github.io/assets/images/remote.png",
       url: "https://github.com/danieledellacioppa/android-remote-control"
     },
