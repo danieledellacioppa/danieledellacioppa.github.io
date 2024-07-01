@@ -12,7 +12,12 @@ const projects = [
       imageUrl: "https://danieledellacioppa.github.io/assets/images/remote.png",
       url: "https://github.com/danieledellacioppa/android-remote-control"
     },
-    // Altri progetti...
+    {
+      nome: "QRify",
+      descrizione: "A simple QR Code Generator and Scanner for Android devices.",
+      imageUrl: "https://danieledellacioppa.github.io/assets/images/qr.png",
+      url: "https://github.com/danieledellacioppa/LINKtoQR"
+    },
   ];
   
   function displayProjects() {
