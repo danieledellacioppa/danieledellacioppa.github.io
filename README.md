@@ -2,6 +2,6 @@
 #
 Welcome to my portfolio repo.
 
-Prakash Nidhi Verma | Portfolio
+Daniele Della Cioppa | Portfolio
 
-Link: https://pnidhi26.github.io/findme/
+Link: https://danieledellacioppa.github.io/findme/
