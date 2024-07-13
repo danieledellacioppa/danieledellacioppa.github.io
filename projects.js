@@ -12,7 +12,24 @@ const projects = [
       imageUrl: "https://danieledellacioppa.github.io/assets/images/remote.png",
       url: "https://github.com/danieledellacioppa/android-remote-control"
     },
-    // Altri progetti...
+    {
+      nome: "QRify",
+      descrizione: "A simple QR Code Generator and Scanner for Android devices.",
+      imageUrl: "https://danieledellacioppa.github.io/assets/images/qr.png",
+      url: "https://github.com/danieledellacioppa/LINKtoQR"
+    },
+    {
+      nome: "DroidCast-Projector",
+      descrizione: "A simple Android app to cast your device screen to another device.",
+      imageUrl: "https://danieledellacioppa.github.io/assets/images/projector.png",
+      url: "https://github.com/danieledellacioppa/DroidCast-Projector",
+    },
+    {
+      nome: "DroidCast-Receiver",
+      descrizione: "A simple Android app to receive the screen cast from another device.",
+      imageUrl: "https://danieledellacioppa.github.io/assets/images/receiver.png",
+      url: "https://github.com/danieledellacioppa/DroidCast-Receiver",
+    },
   ];
   
   function displayProjects() {
