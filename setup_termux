@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Specifica il percorso del file
+file="/data/data/com.termux/files/home/.termux/termux.properties"
+
+# Crea la directory se non esiste
+mkdir -p "$(dirname "$file")"
+
+# Aggiungi le linee al file
+echo "allow-external-apps=true" >> "$file"
+echo "hide-soft-keyboard-on-startup=true" >> "$file"
+
+# Ricarica le impostazioni di Termux
+termux-reload-settings
+
+# Installa i pacchetti richiesti
+pkg install -y android-tools
+pkg install -y root-repo
+
+# Mostra la lista dei pacchetti aggiornabili
+apt list --upgradable
+
+# Aggiorna i pacchetti installati
+pkg upgrade -y
+
