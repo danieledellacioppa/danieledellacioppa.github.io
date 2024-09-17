@@ -14,13 +14,13 @@ echo "hide-soft-keyboard-on-startup=true" >> "$file"
 termux-reload-settings
 
 # Installa i pacchetti richiesti accettando automaticamente
-no | pkg install android-tools
-no | pkg install root-repo
+yes | pkg install android-tools
+yes | pkg install root-repo
 
 # Mostra la lista dei pacchetti aggiornabili
 apt list --upgradable
 
 # Aggiorna i pacchetti installati accettando automaticamente
-no | pkg upgrade
+yes | pkg upgrade
 
 
