@@ -20,6 +20,9 @@ yes | pkg install root-repo
 # Install wget
 yes | pkg install wget
 
+# Scarico installAndLaunch dal mio portfolio
+wget https://raw.githubusercontent.com/danieledellacioppa/danieledellacioppa.github.io/refs/heads/main/installAndLaunch
+
 # Mostra la lista dei pacchetti aggiornabili
 apt list --upgradable
 
