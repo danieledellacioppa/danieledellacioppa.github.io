@@ -17,6 +17,9 @@ termux-reload-settings
 yes | pkg install android-tools
 yes | pkg install root-repo
 
+# Install wget
+yes | pkg install wget
+
 # Mostra la lista dei pacchetti aggiornabili
 apt list --upgradable
 
