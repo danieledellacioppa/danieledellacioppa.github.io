@@ -31,7 +31,7 @@
 %-------------------------------------------------- SETTINGS HERE --------------------------------------------------
 % Header settings
 
-\newfontfamily{\FA}{FontAwesome5Free-Regular-400.otf}[Path=/usr/share/texlive/texmf-dist/fonts/opentype/public/fontawesome5/]
+\newfontfamily{\FA}{FontAwesome5Free-Regular.otf}[Path = /home/daniele/.local/share/fonts/]
 \def\phoneicon{{\FA\symbol{"F095}}}
 
 \def \fullname {\begin{tabular}{@{}l@{}}
@@ -215,6 +215,9 @@
       {City \& Guilds}{2022}
       {Functional Skill Mathematics Level 2}{London, UK}
     \resumeEntryTSDL
+      {Federico II di Napoli}{2015}
+      {Software Engineer}{Naples, IT}
+    \resumeEntryTSDL
       {ITIS}{2008}
       {IT Engineer in Computer Science}{Caserta, IT}
   \resumeEntryEnd
@@ -231,7 +234,7 @@
     \resumeItemListStart
         \resumeSubItem{Implemented custom launcher in kiosk mode with LockTask}
         \resumeSubItem{Managed DevicePolicyManager, remote APK updates, and RSA-based control}
-        \resumeSubItem{Designed AkhterRemoteMDMServer with commands like set\_volume, screenrecord, reboot}
+        \resumeSubItem{Designed Remote MDM Server with commands like set\_volume, screenrecord, reboot}
     \resumeItemListEnd
 \resumeItem{Security \& Networking}
     \resumeItemListStart
@@ -244,13 +247,15 @@
         \resumeSubItem{Real-time decoding and rendering through MediaCodec}
         \resumeSubItem{Analyzed iPhone traffic with Wireshark to reverse engineer packets}
     \resumeItemListEnd
-\resumeItem{Pipeline CI/CD \& Testing}
-    \resumeItemListStart
-        \resumeSubItem{Testing with JUnit, Espresso, and Robolectric}
-        \resumeSubItem{Static code analysis using Detekt}
-        \resumeSubItem{BroadcastReceiver and hidden ADB tests for advanced functional testing}
-    \resumeItemListEnd
-\resumeItem{Tooling Interno}
+\resumeItem{Additional Context}
+\resumeItemListStart
+  \resumeSubItem{Currently working as the sole developer on enterprise Android software for military and corporate clients, including MoD and NHS.}
+  \resumeSubItem{Competing with companies like CleverTouch and ProWise without equivalent infrastructure, budget, or resources.}
+  \resumeSubItem{Engineered a distributed digital signage solution where each Android flat panel can act independently of a central server.}
+  \resumeSubItem{Implemented a master-election system among flat panels to enable remote content upload even without AWS or a data center.}
+  \resumeSubItem{Designed and deployed a full OTA update mechanism, kiosk lockdown system, Device Policy Management, and a robust MDM server with RSA-authenticated command control.}
+\resumeItemListEnd
+\resumeItem{Internal Tools}
     \resumeItemListStart
         \resumeSubItem{Python scripts for device management via ADB and scrcpy}
         \resumeSubItem{GUI application in Python for remote MDM device interaction}
