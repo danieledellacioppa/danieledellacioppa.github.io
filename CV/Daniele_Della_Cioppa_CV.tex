@@ -1,0 +1,300 @@
+%-------------------------------------
+% LaTeX Resume for Software Engineers
+% Author : Leslie Cheng
+% License : MIT
+%-------------------------------------
+
+\documentclass[letterpaper,12pt]{article}[leftmargin=*]
+
+\usepackage[empty]{fullpage}
+\usepackage{enumitem}
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \usepackage[xetex]{hyperref}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[pdftex]{hyperref}
+\fi
+\usepackage{fontawesome5}
+\usepackage[sfdefault,light]{FiraSans}
+\usepackage{anyfontsize}
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+%-------------------------------------------------- COLORS --------------------------------------------------
+\definecolor{GrigioChiaro}{HTML}{888888}
+
+
+
+%-------------------------------------------------- SETTINGS HERE --------------------------------------------------
+% Header settings
+
+\newfontfamily{\FA}{FontAwesome5Free-Regular.otf}[Path = /home/daniele/.local/share/fonts/]
+\def\phoneicon{{\FA\symbol{"F095}}}
+
+\def \fullname {\begin{tabular}{@{}l@{}}
+  {\fontsize{35}{45}\selectfont\textbf{\color{primary}Daniele}} \\[-16pt]
+  {\fontsize{35}{45}\selectfont\color{primary}Della Cioppa}
+\end{tabular}}
+
+\def \subtitle {}
+
+\def \linkedinicon {\faLinkedin}
+\def \linkedinlink {https://www.linkedin.com/in/daniele-della-cioppa-41b062115/}
+\def \linkedintext {/daniele-della-cioppa}
+
+\def \phoneicon {\faPhone}
+\def \phonetext {+44 7491954954}
+
+\def \emailicon {\faEnvelope}
+\def \emaillink {mailto:daniele.dellacioppa@gmail.com}
+\def \emailtext {daniele.dellacioppa@gmail.com}
+
+\def \githubicon {\faGithub}
+\def \githublink {https://github.com/danieledellacioppa}
+\def \githubtext {/danieledellacioppa}
+
+\def \websiteicon {\faGlobe}
+\def \websitelink {https://danieledellacioppa.github.io/}
+\def \websitetext {/portfolio}
+
+\def \headertype {\doublecol}
+
+% Misc settings
+\def \entryspacing {-0pt}
+
+\def \bulletstyle {\faAngleRight}
+
+% Define colours
+\definecolor{primary}{HTML}{000000}
+\definecolor{secondary}{HTML}{0D47A1}
+\definecolor{accent}{HTML}{263238}
+\definecolor{links}{HTML}{1565C0}
+
+%-------------------------------------------------------------------------------------------------------------------
+
+% Defines to make listing easier
+\def \linkedin {\linkedinicon \hspace{3pt}\href{\linkedinlink}{\linkedintext}}
+\def \phone {\phoneicon \hspace{3pt}{ \phonetext}}
+\def \email {\emailicon \hspace{3pt}\href{\emaillink}{\emailtext}}
+\def \github {\githubicon \hspace{3pt}\href{\githublink}{\githubtext}}
+\def \website {\websiteicon \hspace{3pt}\href{\websitelink}{\websitetext}}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.55in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.1in}
+
+% Define the link colours
+\hypersetup{
+    colorlinks=true,
+    urlcolor=links,
+}
+
+% Set the margin alignment
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%-------------------------
+% Custom commands
+
+% Sections
+\renewcommand{\section}[2]{\vspace{5pt}
+  \colorbox{secondary}{\color{white}\raggedbottom\normalsize\textbf{{#1}{\hspace{7pt}#2}}}
+}
+
+% Entry start and end, for spacing
+\newcommand{\resumeEntryStart}{\begin{itemize}[leftmargin=2.5mm]}
+\newcommand{\resumeEntryEnd}{\end{itemize}\vspace{\entryspacing}}
+
+% Itemized list for the bullet points under an entry, if necessary
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,itemsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+
+% Resume item
+\renewcommand{\labelitemii}{\bulletstyle}
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\renewcommand{\labelitemiii}{\scriptsize\faIcon{caret-right}}
+\newcommand{\resumeSubItem}[1]{
+  \item\scriptsize{
+    \emph{\color{GrigioChiaro}{#1 \vspace{-2pt}}}
+  }
+}
+
+% Entry with title, subheading, date(s), and location
+\newcommand{\resumeEntryTSDL}[4]{
+  \vspace{-1pt}\item[]
+    \begin{tabularx}{0.97\textwidth}{X@{\hspace{60pt}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+      \textit{\color{accent}\small#3} & \textit{\color{accent}\small#4} \\
+    \end{tabularx}\vspace{-6pt}
+}
+
+% Entry with title and date(s)
+\newcommand{\resumeEntryTD}[2]{
+  \vspace{-1pt}\item[]
+    \begin{tabularx}{0.97\textwidth}{X@{\hspace{60pt}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+    \end{tabularx}\vspace{-6pt}
+}
+
+% Entry for special (skills)
+\newcommand{\resumeEntryS}[2]{
+  \item[]\small{
+    \textbf{\color{primary}#1 }{ #2 \vspace{-6pt}}
+  }
+}
+
+% Double column header
+\newcommand{\doublecol}[6]{
+  \begin{tabularx}{\textwidth}{Xr}
+    {
+      \begin{tabular}[c]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        {\textit{\subtitle}} 
+      \end{tabular}
+    } & {
+      \begin{tabular}[c]{l@{\hspace{1.5em}}l}
+        {\small#4} & {\small#1} \\
+        {\small#5} & {\small#2} \\
+        {\small#6} & {\small#3}
+      \end{tabular}
+    }
+  \end{tabularx}
+}
+
+% Single column header
+\newcommand{\singlecol}[6]{
+  \begin{tabularx}{\textwidth}{Xr}
+    {
+      \begin{tabular}[b]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        {\textit{\subtitle}} \\
+        \ \ \ \ {\small#1} \\
+        {\small#2} \\
+        {\small#3} \\
+        {\small#4} \\
+        {\small#5} \\
+        {\small#6}
+      \end{tabular}
+    }
+  \end{tabularx}
+}
+
+
+\begin{document}
+%-------------------------------------------------- BEGIN HERE --------------------------------------------------
+
+%---------------------------------------------------- HEADER ----------------------------------------------------
+
+\headertype{\linkedin}{\github}{\website}{\phone}{\email}{}
+\vspace{-10pt}
+
+%-------------------------------------------------- EDUCATION --------------------------------------------------
+\section{\faGraduationCap}{Education}
+
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {ACL ESSEX}{2023}
+      {Lvl 3 IT Solution Technician, Software Development}{Brentwood, UK}
+    \resumeEntryTSDL
+      {City \& Guilds}{2023}
+      {Functional Skill English Level 2}{London, UK}
+    \resumeEntryTSDL
+      {City \& Guilds}{2022}
+      {Functional Skill Mathematics Level 2}{London, UK}
+    \resumeEntryTSDL
+      {ITIS}{2008}
+      {IT Engineer in Computer Science}{Caserta, IT}
+  \resumeEntryEnd
+
+%-------------------------------------------------- EXPERIENCE --------------------------------------------------
+\section{\faCode}{Work Experience}
+
+\resumeEntryStart
+\resumeEntryTSDL
+{Akhter Computers Ltd}{Dec 2021 -- Present}
+{Software Developer}{Harlow, UK}
+\resumeItemListStart
+\resumeItem{Android MDM \& Device Control}
+    \resumeItemListStart
+        \resumeSubItem{Implemented custom launcher in kiosk mode with LockTask}
+        \resumeSubItem{Managed DevicePolicyManager, remote APK updates, and RSA-based control}
+        \resumeSubItem{Designed Remote MDM Server with commands like set\_volume, screenrecord, reboot}
+    \resumeItemListEnd
+\resumeItem{Security \& Networking}
+    \resumeItemListStart
+        \resumeSubItem{Remote Wake-on-LAN via router with encrypted RSA authentication}
+        \resumeSubItem{FastAPI OTA server for digitally signed APK updates}
+    \resumeItemListEnd
+\resumeItem{AirPlay Screencasting Project}
+    \resumeItemListStart
+        \resumeSubItem{Reverse engineered AirPlay protocols to receive screencasts on Android}
+        \resumeSubItem{Real-time decoding and rendering through MediaCodec}
+        \resumeSubItem{Analyzed iPhone traffic with Wireshark to reverse engineer packets}
+    \resumeItemListEnd
+\resumeItem{Additional Context}
+\resumeItemListStart
+  \resumeSubItem{Currently working as the sole developer on enterprise Android software for military and corporate clients, including MoD and NHS.}
+  \resumeSubItem{Competing with companies like CleverTouch and ProWise without equivalent infrastructure, budget, or resources.}
+  \resumeSubItem{Engineered a distributed digital signage solution where each Android flat panel can act independently of a central server.}
+  \resumeSubItem{Implemented a master-election system among flat panels to enable remote content upload even without AWS or a data center.}
+  \resumeSubItem{Designed and deployed a full OTA update mechanism, kiosk lockdown system, Device Policy Management, and a robust MDM server with RSA-authenticated command control.}
+\resumeItemListEnd
+\resumeItem{Internal Tools}
+    \resumeItemListStart
+        \resumeSubItem{Python scripts for device management via ADB and scrcpy}
+        \resumeSubItem{GUI application in Python for remote MDM device interaction}
+    \resumeItemListEnd
+\resumeItemListEnd
+\resumeEntryEnd
+
+% %-------------------------------------------------- PROJECTS --------------------------------------------------
+% \section{\faFlask}{Projects}
+
+%   \resumeEntryStart
+%     \resumeEntryTD
+%       {Game Dev Prototype}{}
+%     \resumeItemListStart
+%         \resumeItem{Monster Hunter-like prototype with Valheim-style graphics}
+%         \resumeItem{iFrame combat, Minecraft-style crafting, procedural generation}
+%         \resumeItem{Engine: Godot Mono (C\#) with Unity for Android}
+%     \resumeItemListEnd
+%   \resumeEntryEnd
+
+%-------------------------------------------------- SKILLS --------------------------------------------------
+\section{\faIcon[solid]{cogs}}{Skills}
+ \resumeEntryStart
+   \resumeEntryS{Languages}{Kotlin, Java, Python, Bash, Rust (basic), C\# (Unity/Godot), JavaScript, Vue.js, Go, LaTeX}
+   \resumeEntryS{Frameworks \& Tools}{Jetpack Compose, Dagger Hilt, Room, ADB, FastAPI, Git, Docker, Godot, Unity}
+   \resumeEntryS{Security \& Protocols}{RSA, HTTP/TCP, AirPlay/RTSP/Bonjour, OTA updates with digital signatures}
+   \resumeEntryS{CI/CD \& DevOps}{GitHub Actions, Detekt, CLI Testing, Robolectric, adb shell}
+ \resumeEntryEnd
+
+%-------------------------------------------------- LANGUAGES --------------------------------------------------
+\section{\faIcon{language}}{Languages}
+  \resumeEntryStart
+    \resumeEntryS{}{Italian (native), English (fluent), Spanish (advanced), Catalan (intermediate), German (basic), Cantonese (basic)}
+  \resumeEntryEnd
+
+%-------------------------------------------------- HOBBIES --------------------------------------------------
+\section{\faIcon[solid]{gamepad}}{Hobbies}
+  \resumeEntryStart
+    \resumeEntryS{}{Podcast host: Speak Napolitano and Survive in Naples}
+    \resumeEntryS{}{Videogiochi: Valheim, Minecraft, Souls Series}
+    \resumeEntryS{}{Baking (sourdough, tarte tatin)}
+    \resumeEntryS{}{Hiking}
+  \resumeEntryEnd
+
+\end{document}
