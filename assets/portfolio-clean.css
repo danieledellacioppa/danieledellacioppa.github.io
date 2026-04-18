@@ -1,0 +1,47 @@
+:root {
+  --bg: #f8f9fb;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #0d6efd;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.navbar-brand {
+  font-weight: 600;
+}
+
+.hero {
+  padding: 5rem 0 3rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.8rem;
+}
+
+.badge-type {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.footer {
+  border-top: 1px solid #e5e7eb;
+  color: var(--muted);
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+}
+
+.muted {
+  color: var(--muted);
+}
