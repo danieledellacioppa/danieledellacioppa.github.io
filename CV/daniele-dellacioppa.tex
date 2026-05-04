@@ -52,11 +52,11 @@ Comfortable moving across the full stack, from low-level debugging to system des
     timeline/.style={draw=timelinegray, line width=0.8pt},
     eventdot/.style={circle, fill=timelineblue, minimum size=5pt, inner sep=0pt},
     period/.style={font=\bfseries\small\color{timelineblue}, align=right, text width=2.6cm},
-    title/.style={font=\bfseries\small\color{heading}, align=left, text width=11.2cm},
-    desc/.style={font=\footnotesize\color{timelinegray}, align=left, text width=11.2cm}
+    title/.style={font=\bfseries\small\color{heading}, align=left, text width=10.8cm},
+    desc/.style={font=\footnotesize\color{timelinegray}, align=left, text width=10.8cm}
 ]
 % Vertical axis (newest at top, oldest at bottom)
-\draw[timeline] (0,0.4) -- (0,-11.8);
+\draw[timeline] (0,0.4) -- (0,-16.0);
 
 % 2025-2026
 \node[eventdot] (e1) at (0,0) {};
@@ -65,28 +65,28 @@ Comfortable moving across the full stack, from low-level debugging to system des
 \node[desc, anchor=west] at (0.5,-0.22) {Custom Windows SSO bridge; Kerberos; GSSAPI; Active Directory concepts; Samba AD lab; domain-joined Windows clients; SPN; keytabs; JWT generation/validation; JWKS concepts; FastAPI identity services; authentication vs authorisation; identity propagation; Zero Trust; least privilege; secure backend and file-server access; user-to-resource identity mapping; Windows/Linux integration.};
 
 % 2024-2025
-\node[eventdot] (e2) at (0,-2.7) {};
-\node[period, anchor=east] at (-0.5,-2.55) {2024--2025};
-\node[title, anchor=west] at (0.5,-2.45) {Distributed Digital Signage and Device Synchronisation};
-\node[desc, anchor=west] at (0.5,-2.95) {LAN-based distributed architecture; device-to-device coordination; content distribution; local-first control model; resilience beyond central cloud dependency; multi-device synchronisation; remote content management; performance considerations; Python service prototypes; Rust exploration for faster compiled services.};
+\node[eventdot] (e2) at (0,-3.6) {};
+\node[period, anchor=east] at (-0.5,-3.45) {2024--2025};
+\node[title, anchor=west] at (0.5,-3.35) {Distributed Digital Signage and Device Synchronisation};
+\node[desc, anchor=west] at (0.5,-3.85) {LAN-based distributed architecture; device-to-device coordination; content distribution; local-first control model; resilience beyond central cloud dependency; multi-device synchronisation; remote content management; performance considerations; Python service prototypes; Rust exploration for faster compiled services.};
 
 % 2023-2024
-\node[eventdot] (e3) at (0,-5.2) {};
-\node[period, anchor=east] at (-0.5,-5.05) {2023--2024};
-\node[title, anchor=west] at (0.5,-4.95) {Remote MDM, APK Repository and Update Infrastructure};
-\node[desc, anchor=west] at (0.5,-5.45) {Remote device-management concepts; Android MDM-style control; repository server for APK delivery; compensation strategy for non-updatable base OS; APK hosting; update metadata; hash verification; SHA-512; RSA authentication; secure command execution; remote control APIs; configuration management; foreground services; server/client architecture; Android + Python/Kotlin services.};
+\node[eventdot] (e3) at (0,-7.2) {};
+\node[period, anchor=east] at (-0.5,-7.05) {2023--2024};
+\node[title, anchor=west] at (0.5,-6.95) {Remote MDM, APK Repository and Update Infrastructure};
+\node[desc, anchor=west] at (0.5,-7.45) {Remote device-management concepts; Android MDM-style control; repository server for APK delivery; compensation strategy for non-updatable base OS; APK hosting; update metadata; hash verification; SHA-512; RSA authentication; secure command execution; remote control APIs; configuration management; foreground services; server/client architecture; Android + Python/Kotlin services.};
 
 % 2022-2023
-\node[eventdot] (e4) at (0,-7.9) {};
-\node[period, anchor=east] at (-0.5,-7.75) {2022--2023};
-\node[title, anchor=west] at (0.5,-7.65) {Android Enterprise Kiosk, LockTask and Secure Device Configuration};
-\node[desc, anchor=west] at (0.5,-8.15) {Android development; Kotlin; kiosk mode; LockTask mode; restricted environments; controls for Bluetooth/Ethernet/tethering/sensitive settings; selectable LockTask profiles; per-user and per-profile configuration; USB-key configuration access; in-house cryptographic certificate and RSA-style access control; unique device ID + key binding; unauthorised-change prevention; secure lockdown; system-level behaviour; permission control; high-security controlled environments.};
+\node[eventdot] (e4) at (0,-10.8) {};
+\node[period, anchor=east] at (-0.5,-10.65) {2022--2023};
+\node[title, anchor=west] at (0.5,-10.55) {Android Enterprise Kiosk, LockTask and Secure Device Configuration};
+\node[desc, anchor=west] at (0.5,-11.05) {Android development; Kotlin; kiosk mode; LockTask mode; restricted environments; controls for Bluetooth/Ethernet/tethering/sensitive settings; selectable LockTask profiles; per-user and per-profile configuration; USB-key configuration access; in-house cryptographic certificate and RSA-style access control; unique device ID + key binding; unauthorised-change prevention; secure lockdown; system-level behaviour; permission control; high-security controlled environments.};
 
 % 2021-2022
-\node[eventdot] (e5) at (0,-10.6) {};
-\node[period, anchor=east] at (-0.5,-10.45) {2021--2022};
-\node[title, anchor=west] at (0.5,-10.35) {GPS Streetlight Monitoring, IoT Nodes and Gateway Systems};
-\node[desc, anchor=west] at (0.5,-10.85) {GPS streetlight monitoring; IoT nodes and gateways; UMTS connectivity; PostgreSQL database; Android visualisation app; streetlight and battery monitoring; fault detection; remote telemetry; device status reporting; gateway-to-database communication; early distributed field-system experience.};
+\node[eventdot] (e5) at (0,-14.2) {};
+\node[period, anchor=east] at (-0.5,-14.05) {2021--2022};
+\node[title, anchor=west] at (0.5,-13.95) {GPS Streetlight Monitoring, IoT Nodes and Gateway Systems};
+\node[desc, anchor=west] at (0.5,-14.45) {GPS streetlight monitoring; IoT nodes and gateways; UMTS connectivity; PostgreSQL database; Android visualisation app; streetlight and battery monitoring; fault detection; remote telemetry; device status reporting; gateway-to-database communication; early distributed field-system experience.};
 \end{tikzpicture}
 \end{center}
 
