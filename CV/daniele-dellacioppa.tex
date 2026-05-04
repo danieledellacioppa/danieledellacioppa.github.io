@@ -11,6 +11,8 @@
 \usepackage{microtype}
 \usepackage{tabularx}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
 
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
@@ -23,7 +25,19 @@
 \setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=3pt}
 
 \definecolor{heading}{RGB}{25,25,25}
+\definecolor{timelineblue}{RGB}{31,52,74}
+\definecolor{timelinedark}{RGB}{32,32,32}
+\definecolor{timelinegray}{RGB}{92,92,92}
+
 \titleformat{\section}{\large\bfseries\color{heading}}{}{0pt}{}[\vspace{-4pt}\hrule\vspace{4pt}]
+
+\newcommand{\timelineentry}[4]{%
+  \node[draw=timelinedark, line width=0.6pt, rounded corners=2pt, fill=white,
+        text width=0.78\textwidth, align=left, inner sep=7pt, anchor=west] (box#1) at (1.45,#2) {%
+    {\small\textcolor{timelinegray}{\textbf{#3}}}\\[-2pt]
+    {\normalsize\textcolor{timelineblue}{\textbf{#4}}}\\[-2pt]
+}
+}
 
 \begin{document}
 
@@ -36,25 +50,63 @@
 \end{tabularx}
 
 \section*{Profile}
-Italian software engineer based in London with a strong focus on identity systems and secure architectures. 
-Background across Windows, Linux and Android environments, working on real-world systems involving authentication, device control and distributed platforms. 
-Comfortable moving across the full stack, from low-level debugging to system design and deployment.
+Identity-focused software engineer with a progression from Android/embedded platforms and distributed field systems to IAM, Kerberos SSO and token-based backend access.
 
-\section*{Work Experience}
+\section*{Technical Work Timeline}
 
-\textbf{Identity and Access Management (IAM)}  
-SSO (Kerberos, GSSAPI), Active Directory (Samba AD), JWT token-based authentication, identity propagation, authentication vs authorisation, session handling, secure API access, identity-driven access control, Zero Trust principles, least privilege, service principals (SPN), keytabs, cross-platform identity flows (Windows/Linux/Android), FastAPI-based identity services.
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \draw[line width=1.1pt, color=timelinedark] (0,0) -- (0,23.8);
 
-\textbf{Android Enterprise and Device Management}  
-Kotlin, Kiosk mode, LockTask, restricted environments, permission control, device policy patterns, foreground services, remote device management, RSA-based authentication, secure command execution, system-level behaviour, networking, Bluetooth integration, secure device access control.
+  \foreach \y in {2.2,6.8,11.2,15.7,20.3,23.2}{
+    \fill[timelineblue] (0,\y) circle (2.6pt);
+  }
 
-\textbf{Reverse Engineering and Screen Casting Systems}  
-Protocol analysis, reverse engineering of Apple/Android casting behaviours, cross-platform screen casting (iOS ↔ Android, Windows ↔ Android), network-level debugging, media streaming flows, service interaction analysis, interoperability challenges.
+  \node[anchor=east, text=timelinegray] at (-0.2,23.9) {\scriptsize Most Recent};
+  \node[anchor=east, text=timelinegray] at (-0.2,0.0) {\scriptsize Oldest};
 
-\textbf{Distributed Systems and Digital Signage}  
-LAN-based distributed architecture, decentralised control models, content distribution, system resilience without central cloud dependency, performance optimisation, trade-offs between compiled (Rust) and interpreted (Python) systems.
+  \node[draw=timelinedark, line width=0.6pt, rounded corners=2pt, fill=white,
+        text width=0.78\textwidth, align=left, inner sep=7pt, anchor=west] at (1.45,23.2) {
+    {\small\textcolor{timelinegray}{\textbf{2025--2026 / Current}}}\\[-2pt]
+    {\normalsize\textcolor{timelineblue}{\textbf{Identity and Access Management, Kerberos SSO and Token-Based Access}}}\\[-1pt]
+    \footnotesize Custom Windows SSO bridge; Kerberos auth; GSSAPI; Active Directory concepts; Samba AD lab; domain-joined Windows clients; SPN/service principals; keytabs; JWT generation/validation; JWKS endpoint concepts; FastAPI identity services; authentication vs authorisation; identity propagation; Zero Trust; least privilege; secure backend and protected file-server access; user-to-resource identity mapping; Windows/Linux integration.
+  };
 
-\textbf{Interactive Systems and Machine Learning}  
-Interactive whiteboard systems, handwriting recognition, TensorFlow integration, real-time input processing, user interaction modelling.
+  \node[draw=timelinedark, line width=0.6pt, rounded corners=2pt, fill=white,
+        text width=0.78\textwidth, align=left, inner sep=7pt, anchor=west] at (1.45,20.3) {
+    {\small\textcolor{timelinegray}{\textbf{2024--2025}}}\\[-2pt]
+    {\normalsize\textcolor{timelineblue}{\textbf{Distributed Digital Signage and Device Synchronisation}}}\\[-1pt]
+    \footnotesize LAN-based distributed architecture; device-to-device coordination; content distribution; local-first control model; resilient operation without full central-cloud dependency; multi-device synchronisation concepts; remote content management; performance considerations; Python service prototypes; Rust exploration for faster compiled services vs interpreter limits.
+  };
+
+  \node[draw=timelinedark, line width=0.6pt, rounded corners=2pt, fill=white,
+        text width=0.78\textwidth, align=left, inner sep=7pt, anchor=west] at (1.45,15.7) {
+    {\small\textcolor{timelinegray}{\textbf{2024--2025 (Technical Milestone / Side Project)}}}\\[-2pt]
+    {\normalsize\textcolor{timelineblue}{\textbf{Reverse Engineering and Screen Casting Systems}}}\\[-1pt]
+    \footnotesize Reverse engineering of casting protocols; Apple/AirPlay-style protocol investigation; Android-to-Android casting; iOS-to-Android casting experiments; Windows-to-Android casting concepts; network debugging; protocol analysis; media streaming flows; service discovery; Bonjour/mDNS concepts; interoperability testing.
+  };
+
+  \node[draw=timelinedark, line width=0.6pt, rounded corners=2pt, fill=white,
+        text width=0.78\textwidth, align=left, inner sep=7pt, anchor=west] at (1.45,11.2) {
+    {\small\textcolor{timelinegray}{\textbf{2023--2024}}}\\[-2pt]
+    {\normalsize\textcolor{timelineblue}{\textbf{Remote MDM, APK Repository and Update Infrastructure}}}\\[-1pt]
+    \footnotesize Remote device management concepts; Android MDM-style control; repository server for APK delivery; compensating for limited base-OS updates; APK hosting; update metadata; hash verification (SHA-512); RSA authentication; secure command execution; remote control APIs; device configuration management; foreground services; server/client architecture; Android + Python/Kotlin services.
+  };
+
+  \node[draw=timelinedark, line width=0.6pt, rounded corners=2pt, fill=white,
+        text width=0.78\textwidth, align=left, inner sep=7pt, anchor=west] at (1.45,6.8) {
+    {\small\textcolor{timelinegray}{\textbf{2022--2023}}}\\[-2pt]
+    {\normalsize\textcolor{timelineblue}{\textbf{Android Enterprise Kiosk, LockTask and Secure Device Configuration}}}\\[-1pt]
+    \footnotesize Android development; Kotlin; kiosk mode; LockTask mode; restricted environments; control of Bluetooth, Ethernet, tethering and sensitive settings; selectable LockTask profiles; per-user/per-profile configuration; USB-key-based configuration access; in-house certificate/RSA-style access control; unique device identifiers + cryptographic keys; prevention of unauthorised changes; secure device lockdown; system-level Android behaviour; permission control; high-security controlled environments.
+  };
+
+  \node[draw=timelinedark, line width=0.6pt, rounded corners=2pt, fill=white,
+        text width=0.78\textwidth, align=left, inner sep=7pt, anchor=west] at (1.45,2.2) {
+    {\small\textcolor{timelinegray}{\textbf{2021--2022}}}\\[-2pt]
+    {\normalsize\textcolor{timelineblue}{\textbf{GPS Streetlight Monitoring, IoT Nodes and Gateway Systems}}}\\[-1pt]
+    \footnotesize GPS streetlight monitoring; IoT nodes and gateways; UMTS connectivity; PostgreSQL database; Android visualisation app; streetlight status and battery-level monitoring; fault detection; remote telemetry; device-status reporting; gateway-to-database communication; early distributed-system and field-device monitoring experience.
+  };
+\end{tikzpicture}
+\end{center}
 
 \end{document}
