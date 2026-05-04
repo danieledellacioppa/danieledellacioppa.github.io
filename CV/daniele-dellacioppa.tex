@@ -11,6 +11,8 @@
 \usepackage{microtype}
 \usepackage{tabularx}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
 
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
@@ -23,6 +25,9 @@
 \setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=3pt}
 
 \definecolor{heading}{RGB}{25,25,25}
+\definecolor{linecolor}{RGB}{45,60,85}
+\definecolor{dotcolor}{RGB}{22,31,46}
+\definecolor{textgray}{RGB}{45,45,45}
 \titleformat{\section}{\large\bfseries\color{heading}}{}{0pt}{}[\vspace{-4pt}\hrule\vspace{4pt}]
 
 \begin{document}
@@ -36,25 +41,62 @@
 \end{tabularx}
 
 \section*{Profile}
-Italian software engineer based in London with a strong focus on identity systems and secure architectures. 
-Background across Windows, Linux and Android environments, working on real-world systems involving authentication, device control and distributed platforms. 
-Comfortable moving across the full stack, from low-level debugging to system design and deployment.
+Italian software engineer based in London with a focus on identity systems and secure architectures. 
+Progressive path from embedded/Android and distributed field systems to Identity and Access Management, Kerberos SSO and token-based access services.
 
-\section*{Work Experience}
+\section*{Technical Work Timeline}
 
-\textbf{Identity and Access Management (IAM)}  
-SSO (Kerberos, GSSAPI), Active Directory (Samba AD), JWT token-based authentication, identity propagation, authentication vs authorisation, session handling, secure API access, identity-driven access control, Zero Trust principles, least privilege, service principals (SPN), keytabs, cross-platform identity flows (Windows/Linux/Android), FastAPI-based identity services.
+\begin{center}
+\begin{tikzpicture}[
+    x=1cm,
+    y=1cm,
+    timeline/.style={draw=linecolor, line width=1.1pt},
+    mark/.style={circle, fill=dotcolor, inner sep=2.4pt},
+    date/.style={font=\bfseries\small\color{linecolor}, align=right, text width=2.3cm},
+    title/.style={font=\bfseries\small\color{heading}, align=left, text width=11.1cm},
+    body/.style={font=\footnotesize\color{textgray}, align=left, text width=11.1cm}
+]
 
-\textbf{Android Enterprise and Device Management}  
-Kotlin, Kiosk mode, LockTask, restricted environments, permission control, device policy patterns, foreground services, remote device management, RSA-based authentication, secure command execution, system-level behaviour, networking, Bluetooth integration, secure device access control.
+% Vertical line (newest at top, oldest at bottom)
+\draw[timeline] (0,0.65) -- (0,-10.35);
 
-\textbf{Reverse Engineering and Screen Casting Systems}  
-Protocol analysis, reverse engineering of Apple/Android casting behaviours, cross-platform screen casting (iOS ↔ Android, Windows ↔ Android), network-level debugging, media streaming flows, service interaction analysis, interoperability challenges.
+% 2025-2026 (current)
+\node[mark] at (0,0) {};
+\node[date, anchor=east] at (-0.35,0) {2025--2026\\Current};
+\node[title, anchor=west] at (0.35,0.22) {Identity and Access Management, Kerberos SSO and Token-Based Access};
+\node[body, anchor=west] at (0.35,-0.18) {Custom Windows SSO bridge; Kerberos; GSSAPI; Active Directory concepts; Samba AD lab; domain-joined Windows clients; SPN/service principals; keytabs; JWT generation/validation; JWKS endpoint concepts; FastAPI identity services; authentication vs authorisation; identity propagation; Zero Trust; least privilege; secure backend and protected file-server access; user-to-resource identity mapping; Windows/Linux integration.};
 
-\textbf{Distributed Systems and Digital Signage}  
-LAN-based distributed architecture, decentralised control models, content distribution, system resilience without central cloud dependency, performance optimisation, trade-offs between compiled (Rust) and interpreted (Python) systems.
+% 2024-2025
+\node[mark] at (0,-2.2) {};
+\node[date, anchor=east] at (-0.35,-2.2) {2024--2025};
+\node[title, anchor=west] at (0.35,-1.98) {Distributed Digital Signage and Device Synchronisation};
+\node[body, anchor=west] at (0.35,-2.38) {LAN-based distributed architecture; device-to-device coordination; local-first control model; resilient operation without full central-cloud dependency; multi-device synchronisation concepts; remote content management; performance considerations; Python service prototypes; Rust exploration for faster compiled services versus interpreter-limited workloads.};
 
-\textbf{Interactive Systems and Machine Learning}  
-Interactive whiteboard systems, handwriting recognition, TensorFlow integration, real-time input processing, user interaction modelling.
+% Optional reverse engineering milestone
+\node[mark] at (0,-3.95) {};
+\node[date, anchor=east] at (-0.35,-3.95) {Milestone};
+\node[title, anchor=west] at (0.35,-3.73) {Reverse Engineering and Screen Casting Systems};
+\node[body, anchor=west] at (0.35,-4.13) {Casting protocol reverse engineering; Apple/AirPlay-style investigations; Android-to-Android and iOS-to-Android casting experiments; Windows-to-Android concepts; network debugging; protocol analysis; media streaming flows; service discovery; Bonjour/mDNS; interoperability testing.};
+
+% 2023-2024
+\node[mark] at (0,-5.7) {};
+\node[date, anchor=east] at (-0.35,-5.7) {2023--2024};
+\node[title, anchor=west] at (0.35,-5.48) {Remote MDM, APK Repository and Update Infrastructure};
+\node[body, anchor=west] at (0.35,-5.88) {Remote device-management concepts; Android MDM-style control; repository server for APK delivery; update metadata; APK hosting; hash verification; SHA-512; RSA authentication; secure command execution; remote control APIs; configuration management; foreground services; server/client architecture; Android with Python/Kotlin services; OS-update constraints mitigation.};
+
+% 2022-2023
+\node[mark] at (0,-7.65) {};
+\node[date, anchor=east] at (-0.35,-7.65) {2022--2023};
+\node[title, anchor=west] at (0.35,-7.43) {Android Enterprise Kiosk, LockTask and Secure Device Configuration};
+\node[body, anchor=west] at (0.35,-7.83) {Android development; Kotlin; kiosk mode; LockTask mode; restricted environments; controlled access to Bluetooth/Ethernet/tethering/sensitive settings; selectable LockTask profiles; per-user/per-profile configuration; USB-key-based access path; in-house certificate and RSA-style control; device-identifier plus cryptographic-key binding; prevention of unauthorised configuration changes; secure lockdown in high-security controlled environments; system-level permission control.};
+
+% 2021-2022
+\node[mark] at (0,-9.9) {};
+\node[date, anchor=east] at (-0.35,-9.9) {2021--2022};
+\node[title, anchor=west] at (0.35,-9.68) {GPS Streetlight Monitoring, IoT Nodes and Gateway Systems};
+\node[body, anchor=west] at (0.35,-10.08) {GPS streetlight monitoring; IoT nodes and gateways; UMTS connectivity; PostgreSQL database; Android visualisation app; streetlight status tracking; battery-level monitoring; fault detection; remote telemetry; device-status reporting; gateway-to-database communication; early distributed field-device monitoring experience.};
+
+\end{tikzpicture}
+\end{center}
 
 \end{document}
