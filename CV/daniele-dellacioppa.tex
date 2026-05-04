@@ -10,9 +10,10 @@
 \usepackage{titlesec}
 \usepackage{microtype}
 \usepackage{tabularx}
-\usepackage{graphicx}
-
 \usepackage{helvet}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
 \renewcommand{\familydefault}{\sfdefault}
 
 \usepackage{fontawesome5}
@@ -22,8 +23,17 @@
 \setlength{\parskip}{4pt}
 \setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=3pt}
 
-\definecolor{heading}{RGB}{25,25,25}
+\definecolor{heading}{RGB}{18,18,18}
+\definecolor{linegray}{RGB}{70,70,70}
+\definecolor{accent}{RGB}{20,52,92}
+\definecolor{softgray}{RGB}{85,85,85}
 \titleformat{\section}{\large\bfseries\color{heading}}{}{0pt}{}[\vspace{-4pt}\hrule\vspace{4pt}]
+
+\newcommand{\entrybox}[3]{%
+\textbf{\color{accent}#1}\\[-1pt]
+\textbf{#2}\\[-1pt]
+{\footnotesize\color{softgray}#3}
+}
 
 \begin{document}
 
@@ -36,25 +46,51 @@
 \end{tabularx}
 
 \section*{Profile}
-Italian software engineer based in London with a strong focus on identity systems and secure architectures. 
-Background across Windows, Linux and Android environments, working on real-world systems involving authentication, device control and distributed platforms. 
-Comfortable moving across the full stack, from low-level debugging to system design and deployment.
+Software engineer focused on secure distributed systems, identity-centric architectures, and cross-platform integration. 
+Progressive path from IoT and Android enterprise systems to Identity and Access Management, Kerberos SSO, and token-based backend security.
 
-\section*{Work Experience}
+\section*{Technical Experience Timeline}
 
-\textbf{Identity and Access Management (IAM)}  
-SSO (Kerberos, GSSAPI), Active Directory (Samba AD), JWT token-based authentication, identity propagation, authentication vs authorisation, session handling, secure API access, identity-driven access control, Zero Trust principles, least privilege, service principals (SPN), keytabs, cross-platform identity flows (Windows/Linux/Android), FastAPI-based identity services.
+\begin{center}
+\begin{tikzpicture}[
+    node distance=7mm and 12mm,
+    dot/.style={circle, fill=accent, inner sep=2.2pt},
+    card/.style={rectangle, rounded corners=2pt, draw=linegray, line width=0.4pt, fill=white, align=left, text width=12.2cm, inner sep=6pt}
+]
 
-\textbf{Android Enterprise and Device Management}  
-Kotlin, Kiosk mode, LockTask, restricted environments, permission control, device policy patterns, foreground services, remote device management, RSA-based authentication, secure command execution, system-level behaviour, networking, Bluetooth integration, secure device access control.
+\draw[line width=1.1pt, linegray] (0,0.5) -- (0,-17.2);
 
-\textbf{Reverse Engineering and Screen Casting Systems}  
-Protocol analysis, reverse engineering of Apple/Android casting behaviours, cross-platform screen casting (iOS ↔ Android, Windows ↔ Android), network-level debugging, media streaming flows, service interaction analysis, interoperability challenges.
+\node[dot] (n1) at (0,0) {};
+\node[card, right=9mm of n1] {
+\entrybox{2025--2026 / Current}{Identity and Access Management, Kerberos SSO and Token-Based Access}{Custom Windows Single Sign-On bridge; Kerberos authentication; GSSAPI; Active Directory concepts; Samba AD lab; domain-joined Windows clients; service principals (SPN); keytabs; JWT token generation and validation; JWKS endpoint concepts; FastAPI identity services; authentication vs authorisation; identity propagation; Zero Trust principles; least privilege; secure backend access; protected file server access; user-to-resource identity mapping; Windows/Linux integration.}
+};
 
-\textbf{Distributed Systems and Digital Signage}  
-LAN-based distributed architecture, decentralised control models, content distribution, system resilience without central cloud dependency, performance optimisation, trade-offs between compiled (Rust) and interpreted (Python) systems.
+\node[dot] (n2) at (0,-3.7) {};
+\node[card, right=9mm of n2] {
+\entrybox{2024--2025}{Distributed Digital Signage and Device Synchronisation}{LAN-based distributed architecture; device-to-device coordination; content distribution; local-first control model; resilience without full cloud dependency; multi-device synchronisation concepts; remote content management; performance considerations; Python service prototypes; exploration of Rust for faster compiled services vs interpreter-bound workloads.}
+};
 
-\textbf{Interactive Systems and Machine Learning}  
-Interactive whiteboard systems, handwriting recognition, TensorFlow integration, real-time input processing, user interaction modelling.
+\node[dot] (n3) at (0,-7.2) {};
+\node[card, right=9mm of n3] {
+\entrybox{2023--2024}{Remote MDM, APK Repository and Update Infrastructure}{Remote device management concepts; Android MDM-style control; repository server for APK delivery; compensating where base OS updates are limited; APK hosting; update metadata; hash verification; SHA-512; RSA authentication; secure command execution; remote control APIs; device configuration management; foreground services; server/client architecture; Android with Python and Kotlin services.}
+};
+
+\node[dot] (n4) at (0,-10.7) {};
+\node[card, right=9mm of n4] {
+\entrybox{2022--2023}{Android Enterprise Kiosk, LockTask and Secure Device Configuration}{Android development; Kotlin; kiosk mode; LockTask mode; restricted environments; control of Bluetooth, Ethernet, tethering, and sensitive settings; selectable LockTask profiles; per-user/per-profile configuration; USB-key-based configuration access; in-house certificate and RSA-style access control; unique device identifiers plus cryptographic keys; prevention of unauthorised configuration changes; secure device lockdown; system-level Android behaviour; permission control; high-security controlled environments.}
+};
+
+\node[dot] (n5) at (0,-14.1) {};
+\node[card, right=9mm of n5] {
+\entrybox{2021--2022}{GPS Streetlight Monitoring, IoT Nodes and Gateway Systems}{GPS streetlight monitoring; IoT nodes and gateways; UMTS connectivity; PostgreSQL database; Android visualisation app; streetlight status monitoring; battery level monitoring; fault detection; remote telemetry; device status reporting; gateway-to-database communication; early distributed field-device monitoring experience.}
+};
+
+\node[dot] (n6) at (0,-16.6) {};
+\node[card, right=9mm of n6] {
+\entrybox{Technical Milestone (Side Project)}{Reverse Engineering and Screen Casting Systems}{Reverse engineering of casting protocols; Apple/AirPlay-style protocol investigation; Android-to-Android casting; iOS-to-Android casting experiments; Windows-to-Android casting concepts; network debugging; protocol analysis; media streaming flows; service discovery; Bonjour/mDNS concepts; interoperability testing.}
+};
+
+\end{tikzpicture}
+\end{center}
 
 \end{document}
