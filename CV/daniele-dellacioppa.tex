@@ -40,33 +40,31 @@
 \end{tabularx}
 
 \section*{Profile}
-Italian software engineer based in London with a strong focus on identity systems and secure architectures. 
-Background across Windows, Linux and Android environments, working on real-world systems involving authentication, device control and distributed platforms. 
-Comfortable moving across the full stack, from low-level debugging to system design and deployment.
+Italian software engineer based in London, transitioning from product and systems engineering into Identity \& Access Management (IAM). I combine hands-on implementation with enterprise identity thinking across Active Directory, Kerberos-based Single Sign-On (SSO), token services and secure backend integration. I am particularly motivated by how trust is established and propagated across operating systems, identity providers and downstream services in Zero Trust architectures.
 
 \section*{Work Experience}
 
 \renewcommand{\arraystretch}{1.15}
 \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} !{\color{timelinegray}\vrule width 0.8pt} >{\raggedright\arraybackslash}X}
 \textbf{\color{timelineblue}\shortstack[r]{2025--2026\\Current}} &
-\textbf{Identity and Access Management, Kerberos SSO and Token-Based Access}\\
-& {\footnotesize\color{timelinegray}Custom Windows SSO bridge; Kerberos; GSSAPI; Active Directory concepts; Samba AD lab; domain-joined Windows clients; SPN; keytabs; JWT generation/validation; JWKS concepts; FastAPI identity services; authentication vs authorisation; identity propagation; Zero Trust; least privilege; secure backend and file-server access; user-to-resource identity mapping; Windows/Linux integration.}\\[5pt]
+\textbf{Software Developer --- Akhter Computers (IAM Platform Engineering)}\\
+& {\small\color{timelinegray}My current role evolved from Android and endpoint development into Identity \& Access Management (IAM), where I am designing and implementing a complete identity-driven file access platform from scratch. The core objective is simple and strict: users authenticate once on Windows through Active Directory, and only that verified identity can access protected files and services.
+
+I engineered UserProbe (Windows C\#/ .NET desktop client), the Akhter Identity Provider (Python FastAPI), and a token-validated FileServer, supported by Samba Active Directory laboratories for realistic integration and validation. The Identity Provider validates Kerberos/SPNEGO tickets through GSSAPI, issues RS256 JWT tokens, and publishes JWKS endpoints for signature trust distribution. The FileServer validates JWT signatures and derives effective identity through \texttt{user\_key = iss|sub} for deterministic principal mapping.
+
+To reduce attack surface, I designed secure manual keytab provisioning so critical Kerberos secrets are never exposed over the network. I also package services for production using Debian packages and systemd units, and I maintain extensive LaTeX operational documentation covering installation, deployment and runbooks. This work applies Zero Trust principles end to end, including least privilege, identity propagation, auditable trust boundaries and practical controls around SPNs, service principals, keytabs, RBAC, MFA and Conditional Access patterns (including transferable Microsoft Entra ID / Azure AD knowledge).}\\[4pt]
 
 \textbf{\color{timelineblue}2024--2025} &
-\textbf{Distributed Digital Signage and Device Synchronisation}\\
-& {\footnotesize\color{timelinegray}LAN-based distributed architecture; device-to-device coordination; content distribution; local-first control model; resilience beyond central cloud dependency; multi-device synchronisation; remote content management; performance considerations; Python service prototypes; Rust exploration for faster compiled services.}\\[5pt]
+\textbf{Android System Developer --- Distributed Device Systems}\\
+& {\footnotesize\color{timelinegray}Built distributed digital-signage and device-synchronisation features with a local-first architecture, improving resilience when cloud connectivity was limited and strengthening endpoint orchestration patterns transferable to identity-aware systems.}\\[3pt]
 
 \textbf{\color{timelineblue}2023--2024} &
-\textbf{Remote MDM, APK Repository and Update Infrastructure}\\
-& {\footnotesize\color{timelinegray}Remote device-management concepts; Android MDM-style control; repository server for APK delivery; compensation strategy for non-updatable base OS; APK hosting; update metadata; hash verification; SHA-512; RSA authentication; secure command execution; remote control APIs; configuration management; foreground services; server/client architecture; Android + Python/Kotlin services.}\\[5pt]
+\textbf{Android System Developer --- Remote MDM \& Update Infrastructure}\\
+& {\footnotesize\color{timelinegray}Developed Android endpoint-control and update infrastructure, including secure APK delivery, remote management workflows, signature/hash verification and controlled command execution across Linux-backed services and mobile clients.}\\[3pt]
 
-\textbf{\color{timelineblue}2022--2023} &
-\textbf{Android Enterprise Kiosk, LockTask and Secure Device Configuration}\\
-& {\footnotesize\color{timelinegray}Android development; Kotlin; kiosk mode; LockTask mode; restricted environments; controls for Bluetooth/Ethernet/tethering/sensitive settings; selectable LockTask profiles; per-user and per-profile configuration; USB-key configuration access; in-house cryptographic certificate and RSA-style access control; unique device ID + key binding; unauthorised-change prevention; secure lockdown; system-level behaviour; permission control; high-security controlled environments.}\\[5pt]
-
-\textbf{\color{timelineblue}2021--2022} &
-\textbf{GPS Streetlight Monitoring, IoT Nodes and Gateway Systems}\\
-& {\footnotesize\color{timelinegray}GPS streetlight monitoring; IoT nodes and gateways; UMTS connectivity; PostgreSQL database; Android visualisation app; streetlight and battery monitoring; fault detection; remote telemetry; device status reporting; gateway-to-database communication; early distributed field-system experience.}
+\textbf{\color{timelineblue}2021--2023} &
+\textbf{Software Development Apprenticeship}\\
+& {\scriptsize\color{timelinegray}Contributed to IoT and Android projects (telemetry, gateway communication, PostgreSQL-backed monitoring and field diagnostics), building the systems foundation later applied to security-focused identity architecture.}
 \end{tabularx}
 
 \end{document}
