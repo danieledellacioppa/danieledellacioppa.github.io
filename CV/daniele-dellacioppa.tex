@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper]{article}
 
-\usepackage[margin=1.5cm]{geometry}
+\usepackage[top=1.25cm,bottom=1.15cm,left=1.15cm,right=1.15cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -10,61 +10,209 @@
 \usepackage{titlesec}
 \usepackage{microtype}
 \usepackage{tabularx}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usetikzlibrary{positioning}
+\usepackage{fontawesome5}
+\usepackage{pagecolor}
 
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
-\usepackage{fontawesome5}
-
 \pagenumbering{gobble}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
-\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=3pt}
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
 
 \definecolor{heading}{RGB}{25,25,25}
 \definecolor{timelineblue}{RGB}{30,58,95}
 \definecolor{timelinegray}{RGB}{80,80,80}
+
+\definecolor{pagebg}{RGB}{241,241,244}
+\definecolor{cardbg}{RGB}{255,255,255}
+\pagecolor{pagebg}
+
 \titleformat{\section}{\large\bfseries\color{heading}}{}{0pt}{}[\vspace{-4pt}\hrule\vspace{4pt}]
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\newcommand{\projectcard}[4]{
+\noindent
+\begin{tikzpicture}
+\node[
+    text width=0.96\textwidth,
+    fill=cardbg,
+    draw=timelinegray!25,
+    rounded corners=3pt,
+    inner sep=8pt,
+    align=left
+] (box) {
+\begin{tabularx}{0.96\textwidth}{@{}p{0.9cm}@{\hspace{0.35cm}}X@{}}
+{\Huge\color{timelineblue}#1} &
+\begin{minipage}[t]{\linewidth}
+{\large\textbf{#2}}\\[4pt]
+{\footnotesize #3}
+\end{minipage}
+\end{tabularx}
+};
+
+\node[
+    anchor=south east,
+    fill=gray!8,
+    draw=timelinegray!20,
+    rounded corners=2pt,
+    inner xsep=5pt,
+    inner ysep=2pt
+] at ([xshift=-6pt,yshift=6pt]box.south east) {
+    {\tiny #4}
+};
+
+\end{tikzpicture}
+\vspace{6pt}
+}
 
 \begin{document}
 
+\begin{tikzpicture}[remember picture,overlay]
+\node[
+    anchor=south,
+    yshift=0.35cm,
+    text width=18.2cm,
+    fill=cardbg,
+    draw=timelineblue!35,
+    rounded corners=5pt,
+    inner sep=8pt
+] at (current page.south) {
+{\scriptsize
+{\small\bfseries\color{timelineblue}
+\faCogs\ SKILLS
+}
+
+{\color{timelineblue!40}\rule{\linewidth}{0.4pt}}
+
+\vspace{3pt}
+\begin{tabularx}{18.0cm}{@{}X X X X X@{}}
+\textbf{\color{timelineblue}Identity} &
+\textbf{\color{timelineblue}Windows} &
+\textbf{\color{timelineblue}Automation} &
+\textbf{\color{timelineblue}Endpoint} &
+\textbf{\color{timelineblue}Lab} \\[3pt]
+
+Active Directory &
+Server 2022 &
+Python &
+Android MDM &
+KVM \\
+
+Kerberos / SPNEGO &
+SMB / NTFS &
+PowerShell &
+Kiosk &
+qcow2 \\
+
+SSO / JWT / JWKS &
+GPO &
+FastAPI &
+Debian Packaging &
+Reproducible Testing \\
+
+RBAC / JML &
+Folder Redirection &
+Orchestration &
+Secure Endpoint Mgmt &
+\LaTeX \\
+\end{tabularx}
+}
+};
+\end{tikzpicture}
 \begin{tabularx}{\textwidth}{X r}
     {\LARGE \textbf{Daniele Della Cioppa}} &
     \href{https://github.com/danieledellacioppa}{\LARGE \faGithub\ GitHub} \\
-    {\large Identity and Access Management Engineer} &
+    {\large Identity \& Infrastructure Automation Engineer} &
     \href{https://www.linkedin.com/in/daniele-della-cioppa-41b062115/}{\LARGE \faLinkedin\ LinkedIn} \\
     London, UK & \\
 \end{tabularx}
 
-\section*{Profile}
-Italian software engineer based in London, transitioning from product and systems engineering into Identity \& Access Management (IAM). I combine hands-on implementation with enterprise identity thinking across Active Directory, Kerberos-based Single Sign-On (SSO), token services and secure backend integration. I am particularly motivated by how trust is established and propagated across operating systems, identity providers and downstream services in Zero Trust architectures.
+\smallskip
+\smallskip
+\smallskip
+\smallskip
+
+\footnotesize{
+I work on solutions for secure Ministry of Defence (MoD) environments, helping automate Active Directory onboarding, Kerberos and SPNEGO authentication, SMB storage, Group Policy, Folder Redirection and Joiner/Mover/Leaver (JML) workflows using Python and PowerShell.
+
+Over the years I've also worked on Android system development, Mobile Device Management (MDM), kiosk lockdown solutions, Device Policy Manager integrations, custom APK update servers, digital signage platforms, screencasting technologies, handwriting-recognition systems and reverse-engineering activities for analysis, troubleshooting and security investigations.
+
+}
+
 
 \section*{Work Experience}
 
-\renewcommand{\arraystretch}{1.15}
+\renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} !{\color{timelinegray}\vrule width 0.8pt} >{\raggedright\arraybackslash}X}
 \textbf{\color{timelineblue}\shortstack[r]{2025--2026\\Current}} &
-\textbf{Software Developer --- Akhter Computers (IAM Platform Engineering)}\\
-& {\small\color{timelinegray}My current role evolved from Android and endpoint development into Identity \& Access Management (IAM), where I am designing and implementing a complete identity-driven file access platform from scratch. The core objective is simple and strict: users authenticate once on Windows through Active Directory, and only that verified identity can access protected files and services.
-
-I engineered UserProbe (Windows C\#/ .NET desktop client), the Akhter Identity Provider (Python FastAPI), and a token-validated FileServer, supported by Samba Active Directory laboratories for realistic integration and validation. The Identity Provider validates Kerberos/SPNEGO tickets through GSSAPI, issues RS256 JWT tokens, and publishes JWKS endpoints for signature trust distribution. The FileServer validates JWT signatures and derives effective identity through \texttt{user\_key = iss|sub} for deterministic principal mapping.
-
-To reduce attack surface, I designed secure manual keytab provisioning so critical Kerberos secrets are never exposed over the network. I also package services for production using Debian packages and systemd units, and I maintain extensive LaTeX operational documentation covering installation, deployment and runbooks. This work applies Zero Trust principles end to end, including least privilege, identity propagation, auditable trust boundaries and practical controls around SPNs, service principals, keytabs, RBAC, MFA and Conditional Access patterns (including transferable Microsoft Entra ID / Azure AD knowledge).}\\[4pt]
+\textbf{Software Developer --- Akhter Computers}\\
+& {\small\color{timelinegray}\textbf{Identity, Active Directory and Infrastructure Automation}}
+\begin{itemize}
+    \item Created an identity-driven prototype connecting Windows authentication, Kerberos/SPNEGO validation, backend token services and protected file access workflows.
+    \item I also made a Windows Single Sign-On flow where a domain user logs into Windows, obtains Kerberos tickets, negotiates with a Python FastAPI identity service, receives an RS256 JWT, and accesses backend services through JWKS-validated trust.
+    \item Worked with Samba Active Directory and Windows Server 2022 lab environments to validate AD, DNS, Kerberos, domain logon and Windows 11 Pro domain join behaviour.
+    \item Moved the project direction toward an enterprise-native AD/SMB/GPO automation toolkit: central user storage through SMB, Folder Redirection through Group Policy, and Python/PowerShell orchestration instead of custom file synchronisation.
+    \item To help IT Operations I made a Pairing-Based Domain Onboarding Tool for guided server/client onboarding, including pairing flow, client DNS configuration, domain join workflow and validation-oriented state-machine planning.
+    \item Created packaging and deployment workflows for Python services using Debian packages, virtual environments, systemd services, environment files and hardened runtime configuration.
+    \item Investigated Kerberos operational issues including SPNs, keytab generation, GSSAPI validation, service principal mapping, replay-cache permissions and Windows client ticket behaviour.
+    \item Maintained technical documentation and runbooks covering KVM lab setup, Windows Server/Windows 11 testing, Samba AD recovery, DNS/SRV troubleshooting, Kerberos pitfalls and deployment procedures.
+\end{itemize} \\[3pt]
 
 \textbf{\color{timelineblue}2024--2025} &
 \textbf{Android System Developer --- Distributed Device Systems}\\
-& {\footnotesize\color{timelinegray}Built distributed digital-signage and device-synchronisation features with a local-first architecture, improving resilience when cloud connectivity was limited and strengthening endpoint orchestration patterns transferable to identity-aware systems.}\\[3pt]
+& {\footnotesize\color{timelinegray}
+\begin{itemize}
+    \item Built distributed digital-signage and device-synchronisation features with a local-first architecture for environments where cloud connectivity may be limited.
+    \item Worked on endpoint orchestration, device communication and resilience patterns later applied to identity-aware infrastructure and onboarding systems.
+\end{itemize}} \\[2pt]
 
 \textbf{\color{timelineblue}2023--2024} &
 \textbf{Android System Developer --- Remote MDM \& Update Infrastructure}\\
-& {\footnotesize\color{timelinegray}Developed Android endpoint-control and update infrastructure, including secure APK delivery, remote management workflows, signature/hash verification and controlled command execution across Linux-backed services and mobile clients.}\\[3pt]
+& {\footnotesize\color{timelinegray}
+\begin{itemize}
+    \item Developed Android endpoint-control and update infrastructure, including secure APK delivery, remote management workflows, signature/hash verification and controlled command execution.
+    \item Implemented remote device management concepts across Android clients, Linux-backed services and operational tooling.
+\end{itemize}} \\[2pt]
 
 \textbf{\color{timelineblue}2021--2023} &
 \textbf{Software Development Apprenticeship}\\
-& {\scriptsize\color{timelinegray}Contributed to IoT and Android projects (telemetry, gateway communication, PostgreSQL-backed monitoring and field diagnostics), building the systems foundation later applied to security-focused identity architecture.}
+& {\scriptsize\color{timelinegray}
+\begin{itemize}
+    \item Contributed to IoT and Android projects involving telemetry, gateway communication, PostgreSQL-backed monitoring and field diagnostics.
+    \item Built a foundation in systems development, debugging and customer-facing operational support.
+\end{itemize}}
 \end{tabularx}
+
+\clearpage
+\section*{Main Projects}
+
+\projectcard
+{\faServer}
+{Pairing-Based Domain Onboarding Platform}
+{Built a guided onboarding platform for Windows Server and Active Directory environments, covering server/client pairing, DNS configuration, domain-join validation, SMB home-directory setup, Group Policy and Folder Redirection workflows.}
+{AD / GPO}
+
+\projectcard
+{\faKey}
+{Windows SSO / Kerberos to JWT Prototype}
+{Designed a working authentication flow where Windows domain login is reused to access protected backend services through Kerberos/SPNEGO validation and RS256 JWT trust.}
+{SSO}
+
+\projectcard
+{\faMobile}
+{Android MDM, Kiosk \& Secure Endpoint Control}
+{Developed controlled Android endpoint solutions including kiosk lockdown, Device Policy Manager integration, secure update infrastructure and administrator-authorised privileged actions.}
+{MDM}
+
+\projectcard
+{\faTv}
+{Distributed Digital Signage Platform}
+{Worked on Android-based digital-signage systems focused on content delivery, remote device management, update distribution, local-first behaviour and resilience with limited connectivity.}
+{Signage}
+
 
 \end{document}

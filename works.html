@@ -1,10 +1,11 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projects | Daniele Della Cioppa</title>
-  <meta name="description" content="Public and private projects by Daniele Della Cioppa.">
+  <meta name="description" content="Identity, infrastructure automation, Android enterprise and system-level engineering projects by Daniele Della Cioppa.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/portfolio-clean.css">
 </head>
@@ -29,70 +30,160 @@
 </nav>
 
 <main class="container py-5">
-  <h1 class="mb-4">Projects</h1>
+  <h1 class="mb-2">Projects</h1>
+  <p class="lead muted mb-5">
+    Selected work across identity engineering, enterprise infrastructure automation, Android MDM, kiosk systems and distributed device platforms.
+  </p>
 
   <section class="mb-5">
-    <h2 class="section-title">Public repositories</h2>
-    <p class="muted">These projects include source code and repository links.</p>
-    <div class="row g-3">
-      <div class="col-md-6 col-lg-4"><div class="card h-100"><div class="card-body d-flex flex-column">
-        <span class="badge bg-primary-subtle text-primary-emphasis badge-type mb-2">Public repository</span>
-        <h3 class="h5">Jetpack Reactive Launcher</h3>
-        <p class="muted">Android launcher built with Jetpack Compose and a reactive architecture approach.</p>
-        <a class="btn btn-outline-primary mt-auto" href="https://github.com/danieledellacioppa/CLI-Launcher" target="_blank">Open repository</a>
-      </div></div></div>
+    <h2 class="section-title">Featured case studies</h2>
 
-      <div class="col-md-6 col-lg-4"><div class="card h-100"><div class="card-body d-flex flex-column">
-        <span class="badge bg-primary-subtle text-primary-emphasis badge-type mb-2">Public repository</span>
-        <h3 class="h5">Android Remote Control</h3>
-        <p class="muted">Remote-control features for Android devices, with practical device-to-device interaction workflows.</p>
-        <a class="btn btn-outline-primary mt-auto" href="https://github.com/danieledellacioppa/android-remote-control" target="_blank">Open repository</a>
-      </div></div></div>
+```
+<div class="card mb-4">
+  <div class="card-body">
+    <span class="badge bg-primary-subtle text-primary-emphasis badge-type mb-2">Identity & Infrastructure Automation</span>
+    <h3 class="h4">Pairing-Based Domain Onboarding Platform</h3>
+    <p>
+      Enterprise onboarding platform for Windows Server and Active Directory environments.
+      The goal is to reduce manual domain setup by guiding server/client pairing,
+      DNS configuration, domain join validation and enterprise storage preparation.
+    </p>
+    <ul class="mb-0">
+      <li>Active Directory onboarding automation</li>
+      <li>Windows Server and Windows 11 domain workflow validation</li>
+      <li>DNS configuration and domain-join checks</li>
+      <li>SMB home-directory and centralized user storage concepts</li>
+      <li>Group Policy and Folder Redirection workflow design</li>
+      <li>Python and PowerShell orchestration</li>
+    </ul>
+  </div>
+</div>
 
-      <div class="col-md-6 col-lg-4"><div class="card h-100"><div class="card-body d-flex flex-column">
-        <span class="badge bg-primary-subtle text-primary-emphasis badge-type mb-2">Public repository</span>
-        <h3 class="h5">QRify</h3>
-        <p class="muted">QR code generation and scanning utility app for Android.</p>
-        <a class="btn btn-outline-primary mt-auto" href="https://github.com/danieledellacioppa/LINKtoQR" target="_blank">Open repository</a>
-      </div></div></div>
+<div class="card mb-4">
+  <div class="card-body">
+    <span class="badge bg-primary-subtle text-primary-emphasis badge-type mb-2">Identity Engineering</span>
+    <h3 class="h4">Windows SSO / Kerberos to JWT Prototype</h3>
+    <p>
+      Working authentication prototype where Windows domain login is reused to access protected backend services
+      without requiring a second manual login.
+    </p>
+    <ul class="mb-0">
+      <li>Kerberos and SPNEGO authentication</li>
+      <li>GSSAPI/keytab-based service-ticket validation</li>
+      <li>RS256 JWT issuance</li>
+      <li>JWKS-based backend trust validation</li>
+      <li>Identity-centric and Zero Trust-inspired architecture</li>
+      <li>Windows client and FastAPI backend integration</li>
+    </ul>
+  </div>
+</div>
 
-      <div class="col-md-6 col-lg-4"><div class="card h-100"><div class="card-body d-flex flex-column">
-        <span class="badge bg-primary-subtle text-primary-emphasis badge-type mb-2">Public repository</span>
-        <h3 class="h5">DroidCast Projector</h3>
-        <p class="muted">Android app for casting a device screen to another device.</p>
-        <a class="btn btn-outline-primary mt-auto" href="https://github.com/danieledellacioppa/DroidCast-Projector" target="_blank">Open repository</a>
-      </div></div></div>
+<div class="card mb-4">
+  <div class="card-body">
+    <span class="badge bg-primary-subtle text-primary-emphasis badge-type mb-2">Android Enterprise</span>
+    <h3 class="h4">Android MDM, Kiosk & Secure Endpoint Control</h3>
+    <p>
+      Android system-management work for controlled enterprise devices, focused on secure administration,
+      kiosk restrictions, remote control and update delivery.
+    </p>
+    <ul class="mb-0">
+      <li>Mobile Device Management (MDM) concepts</li>
+      <li>Kiosk lockdown environments</li>
+      <li>Device Policy Manager integrations</li>
+      <li>Secure APK update infrastructure</li>
+      <li>Remote endpoint administration workflows</li>
+      <li>Administrator-authorised privileged actions</li>
+    </ul>
+  </div>
+</div>
 
-      <div class="col-md-6 col-lg-4"><div class="card h-100"><div class="card-body d-flex flex-column">
-        <span class="badge bg-primary-subtle text-primary-emphasis badge-type mb-2">Public repository</span>
-        <h3 class="h5">DroidCast Receiver</h3>
-        <p class="muted">Companion Android app that receives and renders streamed screen content.</p>
-        <a class="btn btn-outline-primary mt-auto" href="https://github.com/danieledellacioppa/DroidCast-Receiver" target="_blank">Open repository</a>
-      </div></div></div>
-    </div>
+<div class="card mb-4">
+  <div class="card-body">
+    <span class="badge bg-primary-subtle text-primary-emphasis badge-type mb-2">Distributed Device Systems</span>
+    <h3 class="h4">Distributed Digital Signage Platform</h3>
+    <p>
+      Android-based distributed signage architecture for managed display devices,
+      designed around local-first operation and resilience in environments with limited or unreliable connectivity.
+    </p>
+    <ul class="mb-0">
+      <li>Content distribution to Android display devices</li>
+      <li>Remote device management</li>
+      <li>Update delivery workflows</li>
+      <li>Local-first operation</li>
+      <li>Resilience in limited-connectivity environments</li>
+      <li>Operational troubleshooting and deployment support</li>
+    </ul>
+  </div>
+</div>
+```
+
   </section>
 
   <section>
-    <h2 id="private-case-studies" class="section-title">Private/internal case studies</h2>
-    <p class="muted">Architecture and outcomes are documented here without exposing internal source code.</p>
+    <h2 class="section-title">Public repositories</h2>
+    <p class="muted">
+      Smaller public projects and experiments. The main enterprise work above is described as case studies because parts of it are internal.
+    </p>
 
-    <div class="card">
-      <div class="card-body">
-        <span class="badge bg-secondary-subtle text-secondary-emphasis badge-type mb-2">Private/internal project – architecture and outcomes described here</span>
-        <h3 class="h4">Akhter Cloud Storage / Identity Platform</h3>
-        <p>
-          Designed and implemented an end-to-end Single Sign-On flow: <strong>Windows login → Kerberos → custom Identity Provider → JWT → FileServer</strong>,
-          enabling access without manual login prompts.
-        </p>
-        <ul>
-          <li>Replaced a complex identity stack with a simpler custom identity solution.</li>
-          <li>Implemented an Identity Provider that issues <strong>RS256 JWTs</strong> and exposes a <strong>JWKS endpoint</strong>.</li>
-          <li>Updated FileServer token verification to use dynamic key retrieval through JWKS, reducing reliance on static public keys.</li>
-          <li>Evolved the platform toward a lightweight IAM architecture.</li>
-          <li>Ongoing engineering work: key rotation, trust hardening, and synchronization logic.</li>
-        </ul>
+```
+<div class="row g-3">
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <span class="badge bg-secondary-subtle text-secondary-emphasis badge-type mb-2">Public repository</span>
+        <h3 class="h5">Jetpack Reactive Launcher</h3>
+        <p class="muted">Android launcher built with Jetpack Compose and a reactive architecture approach.</p>
+        <a class="btn btn-outline-primary mt-auto" href="https://github.com/danieledellacioppa/CLI-Launcher" target="_blank">Open repository</a>
       </div>
     </div>
+  </div>
+
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <span class="badge bg-secondary-subtle text-secondary-emphasis badge-type mb-2">Public repository</span>
+        <h3 class="h5">Android Remote Control</h3>
+        <p class="muted">Remote-control features for Android devices, with practical device-to-device interaction workflows.</p>
+        <a class="btn btn-outline-primary mt-auto" href="https://github.com/danieledellacioppa/android-remote-control" target="_blank">Open repository</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <span class="badge bg-secondary-subtle text-secondary-emphasis badge-type mb-2">Public repository</span>
+        <h3 class="h5">QRify</h3>
+        <p class="muted">QR code generation and scanning utility app for Android.</p>
+        <a class="btn btn-outline-primary mt-auto" href="https://github.com/danieledellacioppa/LINKtoQR" target="_blank">Open repository</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <span class="badge bg-secondary-subtle text-secondary-emphasis badge-type mb-2">Public repository</span>
+        <h3 class="h5">DroidCast Projector</h3>
+        <p class="muted">Android app for casting a device screen to another device.</p>
+        <a class="btn btn-outline-primary mt-auto" href="https://github.com/danieledellacioppa/DroidCast-Projector" target="_blank">Open repository</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <span class="badge bg-secondary-subtle text-secondary-emphasis badge-type mb-2">Public repository</span>
+        <h3 class="h5">DroidCast Receiver</h3>
+        <p class="muted">Companion Android app that receives and renders streamed screen content.</p>
+        <a class="btn btn-outline-primary mt-auto" href="https://github.com/danieledellacioppa/DroidCast-Receiver" target="_blank">Open repository</a>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
   </section>
 </main>
 
@@ -101,5 +192,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
+
