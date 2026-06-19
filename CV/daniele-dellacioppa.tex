@@ -90,35 +90,35 @@
 
 \vspace{3pt}
 \begin{tabularx}{18.0cm}{@{}X X X X X@{}}
-\textbf{\color{timelineblue}Identity} &
-\textbf{\color{timelineblue}Windows} &
-\textbf{\color{timelineblue}Automation} &
-\textbf{\color{timelineblue}Endpoint} &
-\textbf{\color{timelineblue}Lab} \\[3pt]
+\textbf{\color{timelineblue}Android} &
+\textbf{\color{timelineblue}MDM} &
+\textbf{\color{timelineblue}Architecture} &
+\textbf{\color{timelineblue}Delivery} &
+\textbf{\color{timelineblue}Secure Infra} \\[3pt]
 
-Active Directory &
-Server 2022 &
-Python &
-Android MDM &
-KVM \\
+Kotlin / Android SDK &
+Android Enterprise &
+MVVM &
+Gradle &
+MOD Environments \\
 
-Kerberos / SPNEGO &
-SMB / NTFS &
-PowerShell &
-Kiosk &
-qcow2 \\
+Device Owner &
+Device Policy Manager &
+Clean Architecture &
+CI/CD &
+Active Directory \\
 
-SSO / JWT / JWKS &
-GPO &
-FastAPI &
-Debian Packaging &
-Reproducible Testing \\
+Kiosk Mode &
+Secure APK Updates &
+Coroutines / Flow &
+Automated Testing &
+Kerberos / SPNEGO \\
 
-RBAC / JML &
-Folder Redirection &
-Orchestration &
-Secure Endpoint Mgmt &
-\LaTeX \\
+REST APIs &
+Secure Mobile Apps &
+Offline-first Systems &
+Python / PowerShell &
+SMB / GPO / JML \\
 \end{tabularx}
 }
 };
@@ -126,7 +126,7 @@ Secure Endpoint Mgmt &
 \begin{tabularx}{\textwidth}{X r}
     {\LARGE \textbf{Daniele Della Cioppa}} &
     \href{https://github.com/danieledellacioppa}{\LARGE \faGithub\ GitHub} \\
-    {\large Identity \& Infrastructure Automation Engineer} &
+    {\large Android Software Engineer --- Secure MDM \& Endpoint Control} &
     \href{https://www.linkedin.com/in/daniele-della-cioppa-41b062115/}{\LARGE \faLinkedin\ LinkedIn} \\
     London, UK & \\
 \end{tabularx}
@@ -137,9 +137,9 @@ Secure Endpoint Mgmt &
 \smallskip
 
 \footnotesize{
-I work on solutions for secure Ministry of Defence (MoD) environments, helping automate Active Directory onboarding, Kerberos and SPNEGO authentication, SMB storage, Group Policy, Folder Redirection and Joiner/Mover/Leaver (JML) workflows using Python and PowerShell.
+Android Software Engineer focused on Kotlin, secure Android mobile applications, MDM and endpoint control for Ministry of Defence (MOD) environments. I build Android Device Owner and Android Enterprise workflows using Device Policy Manager, kiosk lockdown, controlled APK update delivery, REST API integration, Gradle builds and policy-driven device behaviour.
 
-Over the years I've also worked on Android system development, Mobile Device Management (MDM), kiosk lockdown solutions, Device Policy Manager integrations, custom APK update servers, digital signage platforms, screencasting technologies, handwriting-recognition systems and reverse-engineering activities for analysis, troubleshooting and security investigations.
+I also bring identity and infrastructure automation experience across Active Directory, Kerberos/SPNEGO, SMB storage, Group Policy, Folder Redirection and Joiner/Mover/Leaver (JML) workflows using Python and PowerShell, supporting secure mobile estate integration with enterprise Windows and MOD networks.
 
 }
 
@@ -150,45 +150,59 @@ Over the years I've also worked on Android system development, Mobile Device Man
 \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} !{\color{timelinegray}\vrule width 0.8pt} >{\raggedright\arraybackslash}X}
 \textbf{\color{timelineblue}\shortstack[r]{2025--2026\\Current}} &
 \textbf{Software Developer --- Akhter Computers}\\
-& {\small\color{timelinegray}\textbf{Identity, Active Directory and Infrastructure Automation}}
+& {\small\color{timelinegray}\textbf{Secure Android, MDM and Infrastructure Automation}}
 \begin{itemize}
-    \item Created an identity-driven prototype connecting Windows authentication, Kerberos/SPNEGO validation, backend token services and protected file access workflows.
-    \item I also made a Windows Single Sign-On flow where a domain user logs into Windows, obtains Kerberos tickets, negotiates with a Python FastAPI identity service, receives an RS256 JWT, and accesses backend services through JWKS-validated trust.
-    \item Worked with Samba Active Directory and Windows Server 2022 lab environments to validate AD, DNS, Kerberos, domain logon and Windows 11 Pro domain join behaviour.
-    \item Moved the project direction toward an enterprise-native AD/SMB/GPO automation toolkit: central user storage through SMB, Folder Redirection through Group Policy, and Python/PowerShell orchestration instead of custom file synchronisation.
-    \item To help IT Operations I made a Pairing-Based Domain Onboarding Tool for guided server/client onboarding, including pairing flow, client DNS configuration, domain join workflow and validation-oriented state-machine planning.
-    \item Created packaging and deployment workflows for Python services using Debian packages, virtual environments, systemd services, environment files and hardened runtime configuration.
-    \item Investigated Kerberos operational issues including SPNs, keytab generation, GSSAPI validation, service principal mapping, replay-cache permissions and Windows client ticket behaviour.
-    \item Maintained technical documentation and runbooks covering KVM lab setup, Windows Server/Windows 11 testing, Samba AD recovery, DNS/SRV troubleshooting, Kerberos pitfalls and deployment procedures.
+    \item Built secure MOD-environment prototypes combining endpoint-control requirements with Active Directory onboarding, Kerberos/SPNEGO authentication, backend token services and protected file access workflows.
+    \item Implemented a Windows Single Sign-On flow where a domain user obtains Kerberos tickets, negotiates with a Python FastAPI identity service, receives an RS256 JWT, and accesses backend services through JWKS-validated trust.
+    \item Validated Samba Active Directory and Windows Server 2022 lab environments covering AD, DNS, Kerberos, domain logon, Windows 11 Pro domain join behaviour, SPNs, keytabs and GSSAPI service validation.
+    \item Moved the project direction toward enterprise-native AD/SMB/GPO automation: central user storage through SMB, Folder Redirection through Group Policy, JML workflows and Python/PowerShell orchestration.
+    \item Built a Pairing-Based Domain Onboarding Tool for guided server/client onboarding, including pairing flow, client DNS configuration, domain join workflow and validation-oriented state-machine planning.
+    \item Created deployment workflows for Python services using Debian packages, virtual environments, systemd services, environment files, hardened runtime configuration and KVM-backed reproducible lab testing.
 \end{itemize} \\[3pt]
 
 \textbf{\color{timelineblue}2024--2025} &
 \textbf{Android System Developer --- Distributed Device Systems}\\
 & {\footnotesize\color{timelinegray}
 \begin{itemize}
-    \item Built distributed digital-signage and device-synchronisation features with a local-first architecture for environments where cloud connectivity may be limited.
-    \item Worked on endpoint orchestration, device communication and resilience patterns later applied to identity-aware infrastructure and onboarding systems.
+    \item Developed Kotlin Android features for distributed digital-signage and device-synchronisation systems using a local-first architecture for secure or limited-connectivity environments.
+    \item Integrated Android clients with REST APIs and Linux-backed services for content delivery, command/status reporting, update orchestration and remote operational tooling.
+    \item Structured Android components around MVVM and Clean Architecture boundaries so UI, device orchestration, API, persistence and policy logic remained maintainable and testable.
+    \item Used Kotlin coroutines and Flow for asynchronous device state, background sync, network calls, live status updates and resilience during intermittent connectivity.
 \end{itemize}} \\[2pt]
 
 \textbf{\color{timelineblue}2023--2024} &
 \textbf{Android System Developer --- Remote MDM \& Update Infrastructure}\\
 & {\footnotesize\color{timelinegray}
 \begin{itemize}
-    \item Developed Android endpoint-control and update infrastructure, including secure APK delivery, remote management workflows, signature/hash verification and controlled command execution.
-    \item Implemented remote device management concepts across Android clients, Linux-backed services and operational tooling.
+    \item Developed Android MDM and endpoint-control infrastructure for managed devices, including Device Owner provisioning, Android Enterprise policy flows, Device Policy Manager integrations and kiosk mode lockdown.
+    \item Built Kotlin secure Android mobile application components for remote management, device status reporting, controlled command handling and local policy enforcement.
+    \item Implemented secure APK delivery and update workflows with signature/hash verification, controlled rollout behaviour and administrator-authorised privileged actions.
+    \item Worked with Gradle-based Android builds, CI/CD release packaging and automated validation workflows across Android clients, Linux-backed services and operational tooling.
 \end{itemize}} \\[2pt]
 
 \textbf{\color{timelineblue}2021--2023} &
 \textbf{Software Development Apprenticeship}\\
 & {\scriptsize\color{timelinegray}
 \begin{itemize}
-    \item Contributed to IoT and Android projects involving telemetry, gateway communication, PostgreSQL-backed monitoring and field diagnostics.
+    \item Contributed to IoT and Android projects involving telemetry, REST/gateway communication, PostgreSQL-backed monitoring, field diagnostics and automated testing.
     \item Built a foundation in systems development, debugging and customer-facing operational support.
 \end{itemize}}
 \end{tabularx}
 
 \clearpage
 \section*{Main Projects}
+
+\projectcard
+{\faMobile}
+{Android MDM, Device Owner \& Kiosk Mode}
+{Developed secure Android endpoint-control features around Android Enterprise Device Owner provisioning, Device Policy Manager policy enforcement, kiosk lockdown, remote management, secure APK updates and administrator-authorised privileged actions.}
+{Kotlin / MDM}
+
+\projectcard
+{\faTv}
+{Distributed Android Digital Signage Platform}
+{Worked on Kotlin Android-based digital-signage and synchronisation systems focused on REST API integration, content delivery, remote device management, Gradle release packaging, update distribution and offline-first resilience.}
+{REST / Gradle}
 
 \projectcard
 {\faServer}
@@ -201,18 +215,6 @@ Over the years I've also worked on Android system development, Mobile Device Man
 {Windows SSO / Kerberos to JWT Prototype}
 {Designed a working authentication flow where Windows domain login is reused to access protected backend services through Kerberos/SPNEGO validation and RS256 JWT trust.}
 {SSO}
-
-\projectcard
-{\faMobile}
-{Android MDM, Kiosk \& Secure Endpoint Control}
-{Developed controlled Android endpoint solutions including kiosk lockdown, Device Policy Manager integration, secure update infrastructure and administrator-authorised privileged actions.}
-{MDM}
-
-\projectcard
-{\faTv}
-{Distributed Digital Signage Platform}
-{Worked on Android-based digital-signage systems focused on content delivery, remote device management, update distribution, local-first behaviour and resilience with limited connectivity.}
-{Signage}
 
 
 \end{document}
