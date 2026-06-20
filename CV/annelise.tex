@@ -1,0 +1,358 @@
+%-------------------------------------
+% LaTeX Resume for Software Engineers
+% Author : Leslie Cheng
+% License : MIT
+%-------------------------------------
+
+\documentclass[letterpaper,12pt]{article}[leftmargin=*]
+
+\usepackage[empty]{fullpage}
+\usepackage{enumitem}
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \usepackage[xetex]{hyperref}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[pdftex]{hyperref}
+\fi
+\usepackage{fontawesome5}
+\usepackage[sfdefault,light]{FiraSans}
+\usepackage{anyfontsize}
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+%-------------------------------------------------- COLORS --------------------------------------------------
+\definecolor{GrigioChiaro}{HTML}{888888}
+
+
+
+%-------------------------------------------------- SETTINGS HERE --------------------------------------------------
+% Header settings
+
+\newfontfamily{\FA}{FontAwesome5Free-Regular.otf}[Path = /home/daniele/.local/share/fonts/] % Imposta il percorso corretto per il file del pacchetto FontAwesome5
+\def\phoneicon{{\FA\symbol{"F095}}} % Codice dell'icona del telefono
+
+\def \fullname {\begin{tabular}{@{}l@{}}
+  {\fontsize{35}{45}\selectfont\textbf{\color{primary}Valeria}} \\[-16pt]
+  {\fontsize{35}{45}\selectfont\color{primary}Kierbel}
+\end{tabular}}
+
+\def \subtitle {}
+
+\def \linkedinicon {\faLinkedin}
+\def \linkedinlink {}
+\def \linkedintext {}
+
+\def \phoneicon {\faPhone}
+\def \phonetext {+44 7856 694 592}
+
+\def \emailicon {\faEnvelope}
+\def \emaillink {mailto:valereea@gmail.com}
+\def \emailtext {valereea@gmail.com}
+
+\def \githubicon {\faGithub}
+\def \githublink {}
+\def \githubtext {}
+
+\def \websiteicon {\faGlobe}
+\def \websitelink {}
+\def \websitetext {}
+
+\def \headertype {\doublecol} % \singlecol or \doublecol
+
+% Misc settings
+\def \entryspacing {-0pt}
+
+\def \bulletstyle {\faAngleRight}
+
+% Define colours
+\definecolor{primary}{HTML}{000000}
+\definecolor{secondary}{HTML}{0D47A1}
+\definecolor{accent}{HTML}{263238}
+\definecolor{links}{HTML}{1565C0}
+
+%------------------------------------------------------------------------------------------------------------------- 
+
+% Defines to make listing easier
+\def \linkedin {\linkedinicon \hspace{3pt}\href{\linkedinlink}{\linkedintext}}
+\def \phone {\phoneicon \hspace{3pt}{ \phonetext}}
+\def \email {\emailicon \hspace{3pt}\href{\emaillink}{\emailtext}}
+\def \github {\githubicon \hspace{3pt}\href{\githublink}{\githubtext}}
+\def \website {\websiteicon \hspace{3pt}\href{\websitelink}{\websitetext}}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.55in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.1in}
+
+% Define the link colours
+\hypersetup{
+    colorlinks=true,
+    urlcolor=links,
+}
+
+% Set the margin alignment 
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%-------------------------
+% Custom commands
+
+% Sections
+\renewcommand{\section}[2]{\vspace{5pt}
+  \colorbox{secondary}{\color{white}\raggedbottom\normalsize\textbf{{#1}{\hspace{7pt}#2}}}
+}
+
+% Entry start and end, for spacing
+\newcommand{\resumeEntryStart}{\begin{itemize}[leftmargin=2.5mm]}
+\newcommand{\resumeEntryEnd}{\end{itemize}\vspace{\entryspacing}}
+
+% Itemized list for the bullet points under an entry, if necessary
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,itemsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+
+% Resume item
+\renewcommand{\labelitemii}{\bulletstyle}
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+%usiamo invece <FontAwesomeIcon icon="fas fa-caret-right" /> per i bullet point
+
+\renewcommand{\labelitemiii}{\scriptsize\faIcon{caret-right}}
+% Resume sub-item
+\newcommand{\resumeSubItem}[1]{
+  \item\scriptsize{
+    \emph{\color{GrigioChiaro}{#1 \vspace{-2pt}}} % Piccolo e in corsivo per sottolineare che è un dettaglio
+  }
+}
+
+
+% Entry with title, subheading, date(s), and location
+\newcommand{\resumeEntryTSDL}[4]{
+  \vspace{-1pt}\item[]
+    \begin{tabularx}{0.97\textwidth}{X@{\hspace{60pt}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+      \textit{\color{accent}\small#3} & \textit{\color{accent}\small#4} \\
+    \end{tabularx}\vspace{-6pt}
+}
+
+% Entry with title and date(s)
+\newcommand{\resumeEntryTD}[2]{
+  \vspace{-1pt}\item[]
+    \begin{tabularx}{0.97\textwidth}{X@{\hspace{60pt}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+    \end{tabularx}\vspace{-6pt}
+}
+
+% Entry for special (skills)
+\newcommand{\resumeEntryS}[2]{
+  \item[]\small{
+    \textbf{\color{primary}#1 }{ #2 \vspace{-6pt}}
+  }
+}
+
+% Double column header
+\newcommand{\doublecol}[6]{
+  \begin{tabularx}{\textwidth}{Xr}
+    {
+      \begin{tabular}[c]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        {\textit{\subtitle}} % You could add a subtitle here
+      \end{tabular}
+    } & {
+      \begin{tabular}[c]{l@{\hspace{1.5em}}l}
+        {\small#4} & {\small#1} \\
+        {\small#5} & {\small#2} \\
+        {\small#6} & {\small#3}
+      \end{tabular}
+    }
+  \end{tabularx}
+}
+
+% Single column header
+\newcommand{\singlecol}[6]{
+  \begin{tabularx}{\textwidth}{Xr}
+    {
+      \begin{tabular}[b]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        {\textit{\subtitle}} % You could add a subtitle here
+        \\[\vspace{8pt}] % Aggiungi uno spazio verticale tra le righe
+        {\small#1} \\
+        {\small#2} \\
+        {\small#3} \\
+        {\small#4} \\
+        {\small#5} \\
+        {\small#6}
+      \end{tabular}
+    }
+  \end{tabularx}
+}
+
+
+\begin{document}
+%-------------------------------------------------- BEGIN HERE --------------------------------------------------
+
+%---------------------------------------------------- HEADER ----------------------------------------------------
+
+\headertype{\email}{}{}{\phone}{}{} % Set the order of items here
+\vspace{-10pt} % Set a negative value to push the body up, and the opposite
+
+%-------------------------------------------------- PROFESSIONAL SUMMARY --------------------------------------------------
+\section{\faIcon[solid]{user}}{Professional Summary}
+
+  \resumeEntryStart
+    \resumeEntryS{}
+      {Dynamic, positive, self-motivated and results-driven Team Leader with extensive experience in retail, merchandising, and customer service. Adept at building strong supplier relationships, optimising inventory, and driving sales growth. Passionate about team leadership, product selection, and customer satisfaction. Proven ability to streamline operations, enhance profitability, and foster a collaborative work environment.}
+  \resumeEntryEnd
+
+%-------------------------------------------------- KEY SKILLS --------------------------------------------------
+\section{\faIcon[solid]{cogs}}{Key Skills}
+ \resumeEntryStart
+    \resumeEntryS{ }{ }
+    \vspace{-20pt}
+    \resumeItemListStart
+        \resumeItem{Customer Service Excellence}
+        \resumeItem{Team Leadership \& Development}
+        \resumeItem{Team Trainer}
+        \resumeItem{Stock Buying \& Inventory Management}
+        \resumeItem{Supplier \& Vendor Relations}
+        \resumeItem{Sales \& Profitability Growth}
+        \resumeItem{Merchandising \& Product Selection}
+        \resumeItem{Budgeting \& Forecasting}
+        \resumeItem{Market \& Competitor Analysis}
+        \resumeItem{Process Optimisation}
+        \resumeItem{Nutrition and Beauty Care Product Knowledge}
+        \resumeItem{Teaching \& Lead by Example}
+        \resumeItem{Proficient in Microsoft Office Suite (Word, Excel, PowerPoint, Outlook, Teams)}
+        \resumeItem{Bilingual Spanish and English.}
+    \resumeItemListEnd
+ \resumeEntryEnd
+
+%-------------------------------------------------- EXPERIENCE --------------------------------------------------
+\section{\faCode}{Professional Experience}
+
+
+\resumeEntryStart
+\resumeEntryTSDL
+{Uniqlo}{July 2025 -- Current}
+{Customer Service Agent Spain \& UK}{London, UK}
+\resumeItemListStart
+  \resumeItem{Providing the best customer service in English and in Spanish for both markets.}
+\resumeItemListEnd
+\resumeEntryEnd
+
+\resumeEntryStart
+\resumeEntryTSDL
+{Whole Foods Market}{May 2015 -- Jan 2025}
+{Whole Body Associate Team Leader \& Stock Buyer}{London, UK}
+\resumeItemListStart
+  \resumeItem{Whole Body Associate Team Leader \& Stock Buyer (Dec 2019 -- Jan 2025)}
+    \resumeItemListStart
+      \resumeSubItem{Managed the Body Care, Makeup, Vitamins, and Nutrition departments.}
+      \resumeSubItem{Led, trained, and mentored team members, fostering a high-performance work culture.}
+      \resumeSubItem{Ensured exceptional customer service, responding to product inquiries and resolving issues efficiently.}
+      \resumeSubItem{Managed department operations, budgeting, and labour costs to drive efficiency and revenue growth.}
+      \resumeSubItem{Led stock buying and inventory management, ensuring optimal stock levels and reducing waste.}
+      \resumeSubItem{Built strong relationships with suppliers, negotiating pricing and securing exclusive deals.}
+      \resumeSubItem{Developed and implemented strategic buying plans, aligning with market trends and customer demand.}
+      \resumeSubItem{Monitored and analysed sales performance, adjusting inventory strategies to maximise profits.}
+    \resumeItemListEnd
+  \resumeItem{Customer Service Associate Team Leader \& Cash-Up Manager (2016 -- 2019)}
+    \resumeItemListStart
+      \resumeSubItem{Provided leadership and support to the customer service team, ensuring excellent service delivery.}
+      \resumeSubItem{Assisted in hiring, training, and mentoring customer service team members.}
+      \resumeSubItem{Managed cash handling operations, ensuring accuracy and compliance with financial procedures.}
+      \resumeSubItem{Developed and implemented customer engagement strategies, improving satisfaction and retention.}
+      \resumeSubItem{Led merchandising efforts, optimising product displays and promotions.}
+      \resumeSubItem{Supported the resolution of customer complaints and escalations, ensuring a positive shopping experience.}
+      \resumeSubItem{Culture Champion, promoting team engagement and motivation.}
+    \resumeItemListEnd
+  \resumeItem{Customer Service Supervisor \& Cash-Up Manager (2015 -- 2016)}
+    \resumeItemListStart
+      \resumeSubItem{Oversaw front-end operations, managing cashiers and customer service representatives.}
+      \resumeSubItem{Assisted in staff scheduling, performance evaluations, and training.}
+      \resumeSubItem{Ensured smooth cash-up procedures and financial reporting.}
+    \resumeItemListEnd
+\resumeItemListEnd
+\resumeEntryEnd
+
+%-------------------------------------------------- OTHER WORK EXPERIENCE --------------------------------------------------
+\section{\faFlask}{Other Work Experience}
+
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Singing Teacher}{2014 -- 2015}
+      {Music School 'En Clave'}{Argentina}
+    \resumeEntryTSDL
+      {Singing Teacher}{2014}
+      {School 'Huelemu'}{Chile}
+    \resumeEntryTSDL
+      {Restaurant Manager}{2013 -- 2014}
+      {'El Ají Azul'}{Chile}
+    \resumeEntryTSDL
+      {Waitress \& Event Planner}{2012}
+      {'El Patrón Tacos \& Cantina'}{Vancouver, Canada}
+    \resumeEntryTSDL
+      {Restaurant Manager}{2010 -- 2012}
+      {'Red Burrito'}{Vancouver, Canada}
+    \resumeEntryTSDL
+      {Singer \& Dancer}{2007 -- 2010}
+      {'Orchestra Casablanca'}{Chile}
+    \resumeEntryTSDL
+      {Singing Teacher}{2007 -- 2010}
+      {Music School 'CristaLuna'}{Chile}
+    \resumeEntryTSDL
+      {Art Department Prop Master Assistant}{2002 -- 2003}
+      {Film 'The Motorcycle Diaries'}{Chile \& Argentina}
+  \resumeEntryEnd
+
+%-------------------------------------------------- EDUCATION --------------------------------------------------
+\section{\faGraduationCap}{Education \& Certifications}
+
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {University ARCIS}{2003 -- 2007}
+      {Bachelor of Music / Sing}{Santiago, Chile}
+    \resumeEntryTSDL
+      {Aula XXI}{1995 -- 1999}
+      {High School Graduate}{Buenos Aires, Argentina}
+    \resumeEntryTSDL
+      {Food Safe Level 4}{}
+      {Certification}{London, UK}
+    \resumeEntryTSDL
+      {Musical Theatre \& Performance Training}{}
+      {Training}{Argentina \& Canada}
+  \resumeEntryEnd
+
+%-------------------------------------------------- LANGUAGES --------------------------------------------------
+\section{\faIcon[solid]{comments}}{Languages}
+ \resumeEntryStart
+  \resumeEntryS{Spanish}{Native}
+  \resumeEntryS{English}{Fluent}
+ \resumeEntryEnd
+
+%-------------------------------------------------- DOCUMENTS --------------------------------------------------
+\section{\faIcon[solid]{passport}}{Documents \& Citizenship}
+ \resumeEntryStart
+    \resumeEntryS{ }{ }
+    \vspace{-20pt}
+    \resumeItemListStart
+        \resumeItem{UK Settled Status}
+        \resumeItem{Polish, Argentine, and Chilean Passports}
+    \resumeItemListEnd
+ \resumeEntryEnd
+
+%-------------------------------------------------- END --------------------------------------------------
+
+
+
+\end{document}
