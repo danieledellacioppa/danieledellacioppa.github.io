@@ -1,0 +1,65 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.65cm,bottom=1.55cm,left=1.7cm,right=1.7cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.96]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{fontawesome5}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlist[itemize]{leftmargin=1.25em,topsep=2pt,itemsep=3pt,parsep=0pt}
+\definecolor{accent}{RGB}{28,59,91}
+\titleformat{\section}{\normalsize\bfseries\color{accent}}{}{0pt}{}[\vspace{-4pt}\color{accent!35}\hrule]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\newcommand{\githubicon}{{\color{accent}\faGithub}}
+\newcommand{\linkedinicon}{{\color{accent}\faLinkedin}}
+\begin{document}
+
+{\Huge\bfseries\color{accent} Daniele Della Cioppa}\\[3pt]
+{\large Software Engineer \textbar{} Product Delivery \& Distributed Systems}\\[5pt]
+London, UK\quad\textbar\quad
+\href{https://github.com/danieledellacioppa}{\githubicon\ GitHub}\quad\textbar\quad
+\href{https://www.linkedin.com/in/daniele-della-cioppa-41b062115/}{\linkedinicon\ LinkedIn}
+
+\section*{Profile}
+Primary developer of connected-device products at Akhter Computers, taking operational problems from initial scope through implementation, testing and release across Android, Windows, backend services and cloud infrastructure. Recent work includes remote support and multi-presenter casting. I use AI coding agents extensively to accelerate development while owning architecture, verification and release decisions.
+
+\section*{Experience}
+\textbf{Akhter Computers Ltd, UK} \hfill \textbf{2021--present}\\[-2pt]
+\textit{Software Developer / Android System Developer} \hfill \textit{2025--present}
+\begin{itemize}
+  \item Built an internal remote support system across Android clients, a WebSocket relay on Azure Container Apps and desktop tooling, enabling off-site diagnostics, live viewing and interaction across multiple panel generations.
+  \item Improved the newer panel's remote view from screenshots every 2--3 seconds to approximately 30 FPS. Investigated capture constraints on older hardware while keeping a working fallback.
+  \item Developed a Windows-to-Android WebRTC casting product with mDNS/Bonjour discovery, pairing-code entry, presenter approval, touch-back control and a session manager for up to four simultaneous casts; released sender and panel builds for testing.
+  \item Owned Android Enterprise Device Owner and kiosk workflows, policy enforcement, controlled APK delivery, signed command handling and launcher administration across different Android and firmware versions.
+  \item Built supporting backend and operational components using Python/FastAPI, Linux services, Docker and Azure; worked with authentication tokens, device reporting, update delivery and release packaging.
+  \item Developed Windows domain onboarding and SSO prototypes using Active Directory, Kerberos/SPNEGO, SMB, GPO, PowerShell and RS256 JWTs.
+\end{itemize}
+
+\textit{Android System Developer --- distributed devices and MDM} \hfill \textit{2023--2025}
+\begin{itemize}
+  \item Developed Android digital-signage and device-management features, connecting Kotlin clients to REST APIs and Linux services for content delivery, state reporting and controlled updates.
+  \item Built local-first device synchronisation and provisioning flows for intermittent connectivity, with reusable UI, network and policy components.
+\end{itemize}
+
+\textit{Software Development Apprentice} \hfill \textit{2021--2023}
+\begin{itemize}
+  \item Contributed to Android and IoT applications involving telemetry, REST integration, PostgreSQL-backed monitoring, testing and customer support.
+\end{itemize}
+
+\section*{Product Decisions}
+\textbf{Remote support:} Chose an outbound cloud connection to enable support without customer-side port forwarding. Started with screenshot-based control to cover older and newer panels, then improved live video where hardware allowed.\\
+\textbf{Casting:} Added mDNS/Bonjour discovery and pairing codes in place of manual IP entry, plus an approval-based session manager so a panel can handle multiple presenters while controlling who has touch access.
+
+\section*{Technical Skills}
+\textbf{Languages:} Kotlin, Python, PowerShell, SQL.\\
+\textbf{Systems:} Android, Windows desktop tooling, WebRTC, WebSockets, mDNS/Bonjour, REST APIs, PostgreSQL, Linux, Docker, Azure Container Apps, authentication and device management.\\
+\textbf{Methods:} End-to-end ownership, iterative releases, hardware debugging, AI-assisted development with manual review and validation.
+
+\end{document}
